@@ -1,0 +1,21 @@
+
+.mainWrap{
+  background-color: red;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.taskbar{
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 15%;
+}
+.mainContent{
+  background-color: blue;
+  display: flex;
+  height: 100%;
+  width: 85%;
+}
