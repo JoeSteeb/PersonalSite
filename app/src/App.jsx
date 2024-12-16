@@ -6,13 +6,9 @@ function App() {
   const [count, setCount] = useState(0)
 
   const pages = {
-    element1: { color: "grey", component: "element1" },
-    element2: { color: "grey", component: "element2" },
-    element3: { color: "grey", component: "element3" }
-  }
-
-  const style = {
-    color: "blue"
+    element1: "element1" ,
+    element2: "element2" ,
+    element3: "element3"
   }
 
   const [taskbarState, setTaskbarState] = useState(null)
@@ -25,7 +21,10 @@ function App() {
 
   let num = 0;
   useEffect(() => {
-    setTaskbarState(taskbarBuilder.taskbar(pages, "element1", setTaskbar, style));
+    setTaskbar(
+      taskbarBuilder.taskbar(pages, "element1", setTaskbar),
+      pages["element1"]
+    );
     console.log("updated taskbar" + num);
     ++num;
   }, [])
