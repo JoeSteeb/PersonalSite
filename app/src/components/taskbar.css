@@ -1,11 +1,16 @@
 .button{
     padding-top: 1vh;
-    border: 2px solid black;
-    background-color: green;
+    border: 2px solid #eda86e;
+    background-color: #989a99;
 }
 
 .button-clicked{
-    border: 2px solid black;
-    background-color: blue;
+    border: 2px solid #4a92a8;
+    background-color: #a99890;
     border-right: none;
+}
+
+.padding{
+    flex-grow: 1;
+    background-color: #4a92a8;
 }

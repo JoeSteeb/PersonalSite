@@ -6,5 +6,5 @@ export const taskbar = (pages, selected, setter, style) => {
       return buttons.taskbar(e, "button-clicked", () => setter(taskbar(pages, e, setter, style), pages[e]))
     else
       return buttons.taskbar(e, "button", () => setter(taskbar(pages, e, setter, style), pages[e]))
-  })
+  }).concat(<div className="button padding"></div>);
 }
