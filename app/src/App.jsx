@@ -12,11 +12,12 @@ function App() {
   }
 
   const [taskbarState, setTaskbarState] = useState(null)
-  const [mainContent, setMaincontent] = useState(null)
+  const [pageContent, setpageContent] = useState(null)
 
   const setTaskbar = (taskbar, page) => {
     setTaskbarState(taskbar);
-    setMaincontent(page.component);
+    setpageContent(pages[page]);
+    console.log("set page to: " + pages[page]);
   }
 
   let num = 0;
@@ -33,11 +34,13 @@ function App() {
   return (
     <>
       <div className='mainWrap'>
-        <div className='taskbar'>
-          {taskbarState}
-        </div>
         <div className='mainContent'>
-          {mainContent}
+          <div className='taskbar'>
+            {taskbarState}
+          </div>
+          <div>
+            <h1>{pageContent}</h1>
+          </div>
         </div>
       </div>
     </>

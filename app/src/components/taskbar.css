@@ -1,11 +1,11 @@
 .button{
     padding-top: 1vh;
     border: 2px solid #eda86e;
-    background-color: #989a99;
+    background-color: #72867d;
 }
 
 .button-clicked{
-    border: 2px solid #4a92a8;
+    border: none;
     background-color: #a99890;
     border-right: none;
 }
