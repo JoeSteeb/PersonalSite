@@ -1,16 +1,28 @@
 .button{
     padding-top: 1vh;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     border: 2px solid #eda86e;
+    border-radius: 8px;
+    padding-top: 5%;
+    transition: width 0.3s ease-in-out;
+    width: 90%; /* Set a base width */
     background-color: #72867d;
 }
 
 .button-clicked{
-    border: none;
+    margin-right: 0;
+    /* border-right: none 3s fade-in-out;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; */
     background-color: #a99890;
+    width: 95%;
     border-right: none;
 }
 
 .padding{
+    border-top-right-radius: 8px;
     flex-grow: 1;
     background-color: #4a92a8;
 }

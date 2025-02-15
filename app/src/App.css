@@ -26,3 +26,16 @@
   height: 100%;
   width: 100%;
 }
+
+.picture-frame{
+  padding-top: 1vh;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 2px solid #eda86e;
+  border-radius: 8px;
+  padding-top: 5%;
+  transition: width 0.3s ease-in-out;
+  width: 90%; /* Set a base width */
+  background-color: #72867d;
+}
