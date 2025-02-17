@@ -6,7 +6,12 @@
 }
 
 .mainWrap{
-  background-color: red;
+  padding-left: 10%;
+  padding-top: .8cm;
+  padding-bottom: .8cm;
+  padding-bottom: .8cm;
+  /* background-color: red; */
+  background-color: #bbbab9;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -14,28 +19,58 @@
 
 .taskbar{
   background-color: #4a92a8;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 15%;
-}
-.mainContent{
-  background-color: #a99890;
-  border: 2px solid #4a92a8;
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-.picture-frame{
-  padding-top: 1vh;
-  margin-top: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
   border: 2px solid #eda86e;
   border-radius: 8px;
-  padding-top: 5%;
-  transition: width 0.3s ease-in-out;
-  width: 90%; /* Set a base width */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  padding-bottom: 2%;
+  width: 7cm;
+  min-width: 7cm;
+}
+
+.taskbar h2, h3{
+  font-family: 'Helvetica',  'Arial', sans-serif;
+  font-size: 20pt;
+  margin-left: .8cm;
+  margin-right: .8cm;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.taskbar h3{
+  font-size: 10pt;
+}
+
+h1{
+  margin: 0;
+}
+.mainContent{
+  /* padding: .8cm 8cm; */
+  /* background-color: #4a92a8; */
+  /* border: 2px solid #4a92a8; */
+  display: flex;
+  max-width: 28cm;
+  width: 100%;
+  /* overflow: hidden;; */
+  /* height: 100%; */
+  /* width: 100%; */
+}
+
+.picture-frame {
+  margin: .8cm auto;
+  border: 2px solid #eda86e;
+  border-radius: 8px;
+  width: 90%;
   background-color: #72867d;
+  overflow: hidden;
+  /* Removed padding-top */
+}
+
+.picture-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* remove inline gap issues */
 }

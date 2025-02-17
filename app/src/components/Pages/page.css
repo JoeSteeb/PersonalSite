@@ -1,0 +1,86 @@
+.page-wrapper{
+    /* display: flex;
+    flex-direction: column; */
+    display: flex;
+    padding-left: 0.5cm;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid #eda86e; */
+}
+.page-title{
+    border: 2px solid #eda86e;
+    background-color: #4a92a8;
+    border-radius: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    align-items: center;
+    text-align: center;
+}
+.page-content{
+    margin-top: 0.5cm;
+    border: 2px solid #eda86e;
+    background-color: #a99890;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.project-view {
+    padding: .4cm;
+    display: grid;
+    /* Try auto-fit so that empty space is collapsed */
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+    /* Use min-content so rows only take as much space as needed by their content */
+    grid-auto-rows: min-content;
+    /* Set a constant gap of 0.4cm between items (both rows and columns) */
+    gap: 0.4cm;
+    width: 100%;
+  }
+  
+  .project {
+    border: 2px solid #eda86e;
+    background-color: #72867d;
+    border-radius: 8px;
+    transition: background-color 0.1s ease-in-out;
+    min-width: 50%;
+    padding: 1em;
+  }
+
+.project:hover {
+    background-color: #eda86e; /* New color on hover */
+}
+
+.titlebar{
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+    text-align: center;
+}
+
+.title-wrapper{
+    text-align: center;
+    /* background-color: blue; */
+    width: 100%;
+}
+
+.back-button{
+    padding-top: 1vh;
+    margin: 0.2cm;
+    width: 3cm;
+    border: 2px solid #eda86e;
+    color: white;
+    border-radius: 8px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #b8868e;
+    
+    /* Smooth background color transition */
+    transition: background-color 0.1s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: #eda86e; /* New color on hover */
+}

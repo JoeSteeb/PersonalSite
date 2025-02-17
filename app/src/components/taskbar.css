@@ -1,24 +1,31 @@
-.button{
+.button {
     padding-top: 1vh;
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-top: 0.2cm;
+    margin-left: 0.2cm;
+    margin-right: 0.2cm;
     border: 2px solid #eda86e;
+    color: white;
     border-radius: 8px;
-    padding-top: 5%;
-    transition: width 0.3s ease-in-out;
-    width: 90%; /* Set a base width */
+    font-family: 'Helvetica', 'Arial', sans-serif;
     background-color: #72867d;
+    
+    /* Smooth background color transition */
+    transition: background-color 0.1s ease-in-out;
+}
+
+.button:hover {
+    background-color: #eda86e; /* New color on hover */
 }
 
 .button-clicked{
-    margin-right: 0;
+    /* margin-right: 0; */
     /* border-right: none 3s fade-in-out;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0; */
-    background-color: #a99890;
-    width: 95%;
-    border-right: none;
+    background-color: #eda86e;
+    color: white;
+    /* width: 95%; */
+    /* border-right: none; */
 }
 
 .padding{

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Visualization Tool",
+        "description": "Developed a web tool using React and D3.js to transform database data into interactive graphs, visualizing relationships between members and organizations.",
+        "image": "/images/visualization-tool.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Graphing Application",
+        "description": "Created a desktop graphing application in C++ using GTK and CMake, allowing users to input functions and visualize their plots.",
+        "image": "/images/graphing-app.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Multi-Factor Authentication Demo",
+        "description": "Built a secure React application with SHA-256 password hashing and two-factor authentication for improved user security.",
+        "image": "/images/mfa-demo.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Example 1",
+        "description": "A placeholder project showcasing an example application.",
+        "image": "/images/example1.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Example 2",
+        "description": "Another sample project demonstrating a different concept.",
+        "image": "/images/example2.jpg"
+    }
+]
