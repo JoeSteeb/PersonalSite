@@ -14,7 +14,7 @@ export const Projects = () => {
             setTitle(project.title);
             setContent(<div>Fullscreen</div>);
         }}>
-            {/* <img src={project.image} alt={project.title} /> */}
+            <img className="picture-frame" src={project.image} alt={project.title} />
             <h2>{project.title}</h2>
         </div>
     ));
