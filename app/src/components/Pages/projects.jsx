@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import "./page.css";
 import { PageGeneric } from "./pageGeneric";
-import projectjson from "./projects.json";
+import projects from "./projectjson";
 
 export const Projects = () => {
     const [flipper, setFlipper] = useState(false);
     const [content, setContent] = useState(null);
     const [title, setTitle] = useState("Projects");
 
-    const projects = projectjson.map((project, index) => (
-        <div key={index} className="project" onClick={() => {
+    const projectElements = projects.map((project) => (
+        <div key={project.id} className="project" onClick={() => {
             setFlipper(true);
             setTitle(project.title);
-            setContent(<div>Fullscreen</div>);
+            setContent(project.page);
         }}>
             <img className="picture-frame" src={project.image} alt={project.title} />
             <h2>{project.title}</h2>
@@ -20,24 +20,28 @@ export const Projects = () => {
     ));
 
     useEffect(() => {
-        setContent(projects);
+        setContent(projectElements);
     }, []);
 
     return (
         <PageGeneric 
             title={
-            <div className="titlebar">
-            {flipper? <button className="back-button" onClick={()=>{
-                setFlipper(false);
-                setContent(projects);
-                setTitle("Projects");
-            }}>{"\<- Back"}</button> : null}
-            <div className="title-wrapper"><h1>{title}</h1></div></div>} 
-            content={
-                <div className="project-view">
-                    {content}
+                <div className="titlebar">
+                    {flipper && (
+                        <button className="back-button" onClick={() => {
+                            setFlipper(false);
+                            setContent(projectElements);
+                            setTitle("Projects");
+                        }}>
+                            {"<- Back"}
+                        </button>
+                    )}
+                    <div className="title-wrapper">
+                        <h1>{title}</h1>
+                    </div>
                 </div>
             } 
+            content={<div className="project-view">{content}</div>} 
         />
     );
 };
