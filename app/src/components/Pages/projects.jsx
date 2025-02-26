@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./page.css";
 import { PageGeneric } from "./pageGeneric";
 import projects from "./projectjson";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
 
 export const Projects = () => {
     const [flipper, setFlipper] = useState(false);
@@ -33,7 +35,8 @@ export const Projects = () => {
                             setContent(projectElements);
                             setTitle("Projects");
                         }}>
-                            {"<- Back"}
+                            <FontAwesomeIcon icon={faPersonThroughWindow} />
+                            {"  Back"}
                         </button>
                     )}
                     <div className="title-wrapper">

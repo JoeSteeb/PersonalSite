@@ -2,15 +2,19 @@ import { useState, useEffect } from 'react'
 import * as taskbarBuilder from './components/taskbarBuilder.jsx'
 import {PageGeneric} from './components/Pages/pageGeneric.jsx'
 import { Projects } from './components/Pages/projects.jsx'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAddressCard } from "@fortawesome/free-regular-svg-icons";
+import { faDiagramProject } from "@fortawesome/free-solid-svg-icons";
+import { faFile } from "@fortawesome/free-solid-svg-icons";
+
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   const pages = {
-    About: <PageGeneric title={<h1>About</h1>} content={"Test"}/> ,
-    Projects: <Projects/> ,
-    Resume: <PageGeneric title={<h1>Resume</h1>} content={"Test"}/>
+    About: {Page: <PageGeneric title={<h1>About</h1>} content={"Test"}/>, Icon: <FontAwesomeIcon icon={faAddressCard} />},
+    Projects: {Page: <Projects/>, Icon: <FontAwesomeIcon icon={faDiagramProject} />},
+    Resume: {Page: <PageGeneric title={<h1>Resume</h1>} content={"Test"}/>, Icon:<FontAwesomeIcon icon={faFile} />}
   }
 
   const [taskbarState, setTaskbarState] = useState(null)
@@ -19,17 +23,13 @@ function App() {
   const setTaskbar = (taskbar, page) => {
     setTaskbarState(taskbar);
     setpageContent(page);
-    console.log("set page to: " + pages[page]);
   }
 
-  let num = 0;
   useEffect(() => {
     setTaskbar(
-      taskbarBuilder.taskbar(pages, <h1>About</h1>, setTaskbar),
+      taskbarBuilder.taskbar(pages, "About ", setTaskbar),
       <PageGeneric title={<h1>About</h1>} content={"Test"}/>
     );
-    console.log("updated taskbar" + num);
-    ++num;
   }, [])
 
 

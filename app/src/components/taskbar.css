@@ -7,8 +7,15 @@
     color: white;
     border-radius: 8px;
     font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: medium;
     background-color: #72867d;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: .2cm;
+    gap: 4px;
     
     /* Smooth background color transition */
     transition: background-color 0.1s ease-in-out;
@@ -28,6 +35,10 @@
     cursor:default;
     /* width: 95%; */
     /* border-right: none; */
+}
+
+h3{
+    margin: 0;
 }
 
 .padding{
