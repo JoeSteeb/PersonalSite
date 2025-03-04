@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     setTaskbar(
-      taskbarBuilder.taskbar(pages, "About ", setTaskbar),
+      taskbarBuilder.taskbar(pages, "About", setTaskbar),
       <PageGeneric title={<h1>About</h1>} content={"Test"}/>
     );
   }, [])
@@ -38,11 +38,12 @@ function App() {
       <div className='mainWrap'>
         <div className='mainContent'>
           <div className='taskbar'>
-            <img className='picture-frame' src={'/images/headshot.JPG'}/>
-            <h2>Joseph Steeb</h2>
-            <h3>Software Developer</h3>
-
-            {taskbarState}
+              <div className='background1'>
+              <img className='picture-frame' src={'/images/headshot.JPG'}/>
+              <h2>Joseph Steeb</h2>
+              <h3>Software Developer</h3>
+              {taskbarState}
+            </div>
           </div>
           {pageContent}
           

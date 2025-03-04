@@ -18,9 +18,11 @@
 }
 
 .taskbar{
-  background-color: #4a92a8;
-  border: 2px solid #eda86e;
-  border-radius: 8px;
+  background-image: url('public/images/simpleFrame.svg');
+  /*background-repeat: no-repeat;  Prevents tiling */
+  background-color: rgba(74, 146, 168);
+  /* border: 2px solid #eda86e; */
+  /* border-radius: 8px; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -28,6 +30,15 @@
   padding-bottom: 2%;
   width: 7cm;
   min-width: 7cm;
+}
+
+.background1{
+  /* background-image: url('public/images/Pattern.png'); */
+  background-repeat: repeat; /* Enables tiling */
+  background-position: top left; /* Aligns tiles from the top-left */
+  background-size: auto; /* Keeps the original image size */
+  height: 100%;
+  width: 100%;
 }
 
 .taskbar h2, h3{
@@ -62,7 +73,7 @@ h1{
   margin: .8cm auto;
   border: 2px solid #eda86e;
   border-radius: 8px;
-  width: 90%;
+  width: 80%;
   background-color: #72867d;
   overflow: hidden;
   /* Removed padding-top */
