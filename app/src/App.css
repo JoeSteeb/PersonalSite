@@ -18,7 +18,7 @@
 }
 
 .corner-tl{
-  position: absolute;
+  /* position: absolute; */
   width:.5cm;
   height:.5cm;
   background-image: url('public/images/border/TL.svg');
@@ -29,7 +29,7 @@
 }
 
 .corner-tr{
-  position: absolute;
+  /* position: absolute; */
   width:.5cm;
   height:.5cm;
   /* background-color: #eda86e; */
@@ -70,8 +70,20 @@
   right: .5cm;
   left: .5cm;
   width: 100%;
-  border-bottom: 2px solid #eda86e;
   /* background-color: red; */
+}
+
+.middle-top{
+  border-top: 1px solid #eda86e;
+}
+
+.middle-bottom{
+  border-bottom: 1px solid #eda86e;
+}
+
+.side{
+  height: 100%;
+  border-right: 1px solid #eda86e;
 }
 
 .inline{
@@ -82,6 +94,10 @@
   width: 100%;
   /* background-color: blue; */
   padding: 0%;
+}
+
+.v-fill{
+  height: 100%;
 }
 
 
