@@ -4,19 +4,17 @@ import "../App.css";
 
 export const Stylebox = ({ content }) => {
   return (
-    <div className="taskbar">
+    <div className="stylebox">
       <div className="inline">
         <div className="corner-tl" />
         <div className="middle middle-top" />
         <div className="corner-tr" />
       </div>
 
-      <div className="background1">
-        <div className="inline v-fill">
-          <div className="side" />
-          {content}
-          <div className="side" />
-        </div>
+      <div className="inline v-fill">
+        <div className="side" />
+        <div className="w-fill">{content}</div>
+        <div className="side" />
       </div>
 
       <div className="inline">
