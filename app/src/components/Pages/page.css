@@ -23,7 +23,7 @@
     align-items: center;
     text-align: center;
 }
-.page-content{
+.page-content {
     margin-top: 0.5cm;
     background-image: url('public/images/Pattern3.png');
     border: 2px solid #eda86e;
@@ -34,7 +34,31 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Custom scrollbar styles */
+.page-content::-webkit-scrollbar {
+    width: 8px; /* Set scrollbar width */
+}
+
+.page-content::-webkit-scrollbar-thumb {
+    background-color: #fff; /* Set thumb color to white */
+    border-radius: 10px; /* Optional: add rounded corners to the scrollbar thumb */
+}
+
+.page-content::-webkit-scrollbar-track {
+    background: transparent; /* Set track background to transparent (no outline) */
+}
+
+.page-content::-webkit-scrollbar-button {
+    display: none; /* Hide the arrows at the top and bottom of the scrollbar */
+}
+
+/* Firefox */
+.page-content {
+    scrollbar-width: thin; /* Set the scrollbar width to "thin" */
+    scrollbar-color: #fff transparent; /* Set thumb color to white and track to transparent */
 }
 
 .project-view {

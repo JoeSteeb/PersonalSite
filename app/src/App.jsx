@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import * as taskbarBuilder from "./components/taskbarBuilder.jsx";
 import { PageGeneric } from "./components/Pages/pageGeneric.jsx";
 import { Projects } from "./components/Pages/projects.jsx";
+import { Resume } from "./components/Pages/resume.jsx";
 import { Stylebox } from "./components/stylebox.jsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,12 +28,7 @@ function App() {
       Icon: <FontAwesomeIcon icon={faDiagramProject} />,
     },
     Resume: {
-      Page: (
-        <PageGeneric
-          title={<Stylebox content={<h1>Resume</h1>} />}
-          content={"Test"}
-        />
-      ),
+      Page: <Resume />,
       Icon: <FontAwesomeIcon icon={faFile} />,
     },
   };
