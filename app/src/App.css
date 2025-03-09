@@ -18,8 +18,11 @@
 }
 
 .corner-tl{
-  min-width: 2rem;
-  min-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
   background-image: url('public/images/border/TL.svg');
   background-size: 100% 100%;
   background-size:cover;
@@ -27,8 +30,11 @@
 }
 
 .corner-tr{
-  min-width: 2rem;
-  min-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  top: 0;
   background-image: url('public/images/border/TR.svg');
   background-size: 100% 100%;
   background-size:cover;
@@ -36,6 +42,9 @@
 }
 
 .corner-bl{
+  position: absolute;
+  left: 0;
+  bottom: 0;
   min-width: 2rem;
   min-height:2rem;
   background-image: url('public/images/border/BL.svg');
@@ -45,6 +54,9 @@
 }
 
 .corner-br{
+  position: absolute;
+  right: 0;
+  bottom: 0;
   /* position: absolute; */
   min-width: 2rem;
   min-height: 2rem;
@@ -55,37 +67,61 @@
 }
 
 .stylebox{
+  position: relative;
+  background-color: #4a92a8;
+  /* border: 2px solid #eda86e; */
+  /* border-radius: 8px; */
+  display: flex;
+  margin: 0px;
+  padding: 0%;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
 .middle{
-  width: 100%;
+  position: absolute;
+  left: 2rem;
+  width: calc(100% - 4rem);
 }
 
 .middle-top{
-  border-top: .2rem solid #eda86e;
+  top: 0;
+  border-top: .1rem solid #eda86e;
 }
 
 .middle-bottom{
-  border-bottom: .2rem solid #eda86e;
+  bottom: 0;
+  border-bottom: .1rem solid #eda86e;
 }
 
 .side{
+  position: absolute;
   width: 0;
-  height: 100%;
-  border-right: .2rem solid #eda86e;
+  top: 2rem;
+  height: calc(100% - 4rem);
+  border-right: .1rem solid #eda86e;
+}
+
+.side-left{
+  left: 0;
+}
+
+.side-right{
+  right: 0;
 }
 
 .inline{
   display: flex;
   flex-direction: row;
+  position: relative;
+  height: 0;
   width: 100%;
   padding: 0%;
 }
 
 .v-fill{
-  /* height: 100%; */
+  display: flex;
   height: calc(100% - 4rem);
 }
 
@@ -95,11 +131,6 @@
 
 
 .taskbar{
-  background-color: #4a92a8;
-  /* border: 2px solid #eda86e; */
-  /* border-radius: 8px; */
-  display: flex;
-  flex-direction: column;
   text-align: center;
   height: 100%;
   width: 15rem;

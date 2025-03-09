@@ -1,10 +1,10 @@
 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_31_18)">
-<path d="M17 0L17 10L15 8L15 1.5L9 1.5L9 8L15 8L17 10L9 10L9 15L17 15L17 17L7 17L7 10L-4.37114e-07 10L0 -7.43094e-07L2 -6.55671e-07L2 8L7 8L7 -4.37114e-07L17 0Z" fill="#EDA86E"/>
+<g clip-path="url(#clip0_43_40)">
+<path d="M17 0H7L8 1H16V9H8V1L7 0V9H1V0H0V10H7V17H17V16H8V10H17V0Z" fill="#EDA86E"/>
 </g>
 <defs>
-<clipPath id="clip0_31_18">
-<rect width="17" height="17" fill="white" transform="translate(17) rotate(90)"/>
+<clipPath id="clip0_43_40">
+<rect width="17" height="17" fill="white" transform="matrix(-1 0 0 1 17 0)"/>
 </clipPath>
 </defs>
 </svg>

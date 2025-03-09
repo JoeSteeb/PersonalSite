@@ -27,7 +27,12 @@ function App() {
       Icon: <FontAwesomeIcon icon={faDiagramProject} />,
     },
     Resume: {
-      Page: <PageGeneric title={<h1>Resume</h1>} content={"Test"} />,
+      Page: (
+        <PageGeneric
+          title={<Stylebox content={<h1>Resume</h1>} />}
+          content={"Test"}
+        />
+      ),
       Icon: <FontAwesomeIcon icon={faFile} />,
     },
   };
@@ -43,7 +48,10 @@ function App() {
   useEffect(() => {
     setTaskbar(
       taskbarBuilder.taskbar(pages, "About", setTaskbar),
-      <PageGeneric title={<h1>About</h1>} content={"Test"} />
+      <PageGeneric
+        title={<Stylebox content={<h1>About</h1>} />}
+        content={"Test"}
+      />
     );
   }, []);
 
@@ -54,12 +62,12 @@ function App() {
           <div className="taskbar">
             <Stylebox
               content={
-                <div className="background1">
+                <>
                   <img className="picture-frame" src={"/images/headshot.JPG"} />
                   <h2>Joseph Steeb</h2>
                   <h3>Software Developer</h3>
                   {taskbarState}
-                </div>
+                </>
               }
             />
           </div>

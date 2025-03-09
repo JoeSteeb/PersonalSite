@@ -77,8 +77,9 @@
 }
 
 .back-button{
-    padding-top: 1vh;
-    margin: 0.2cm;
+    position: absolute;
+    left: 7%;
+    transform: translate(0, 60%);
     width: 3cm;
     border: 2px solid #eda86e;
     color: white;
