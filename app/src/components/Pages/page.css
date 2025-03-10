@@ -57,6 +57,7 @@
 
 /* Firefox */
 .page-content {
+    position: relative;
     scrollbar-width: thin; /* Set the scrollbar width to "thin" */
     scrollbar-color: #fff transparent; /* Set thumb color to white and track to transparent */
 }
@@ -72,6 +73,25 @@
     gap: 0.4cm;
     width: 100%;
   }
+
+  .loading-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #eda86e;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+/* Keyframe animation for the loading spinner */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
   
   .project {
     border: 2px solid #eda86e;
