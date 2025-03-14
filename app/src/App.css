@@ -1,194 +1,116 @@
-.border-multi{
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Data70';
+  src: url('/fonts/Data70.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.border-multi {
   border-color: var(--border-primary, transparent)
                 var(--border-secondary, transparent)
                 var(--border-secondary, transparent)
                 var(--border-primary, transparent);
 }
 
-.mainWrap{
-  padding-left: 10%;
-  padding-top: .8cm;
-  padding-bottom: .8cm;
-  padding-bottom: .8cm;
-  /* background-color: red; */
-  background-color: #bbbab9;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+.mainWrap {
+  @apply pl-[10%] pt-[0.8cm] pb-[0.8cm] w-screen h-screen flex bg-white;
+  background-image: url('public/images/icons/background/Desktop.svg');
 }
 
-.corner-tl{
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-image: url('public/images/border/TL.svg');
-  background-size: 100% 100%;
-  background-size:cover;
-  background-repeat: no-repeat;
+.corner-tl, .corner-tr, .corner-bl, .corner-br {
+  @apply w-8 h-8 absolute bg-cover bg-no-repeat;
 }
 
-.corner-tr{
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-image: url('public/images/border/TR.svg');
-  background-size: 100% 100%;
-  background-size:cover;
-  background-repeat: no-repeat;
+.corner-tl {
+  @apply left-0 top-0 bg-[url('public/images/border/TL.svg')];
 }
 
-.corner-bl{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  min-width: 2rem;
-  min-height:2rem;
-  background-image: url('public/images/border/BL.svg');
-  background-size: 100% 100%;
-  background-size:cover;
-  background-repeat: no-repeat;
+.corner-tr {
+  @apply right-0 top-0 bg-[url('public/images/border/TR.svg')];
 }
 
-.corner-br{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  /* position: absolute; */
-  min-width: 2rem;
-  min-height: 2rem;
-  background-image: url('public/images/border/BR.svg');
-  background-size: 100% 100%;
-  background-size:cover;
-  background-repeat: no-repeat;
+.corner-bl {
+  @apply left-0 bottom-0 min-w-8 min-h-8 bg-[url('public/images/border/BL.svg')];
 }
 
-.stylebox{
-  position: relative;
-  background-color: #4a92a8;
-  /* border: 2px solid #eda86e; */
-  /* border-radius: 8px; */
-  display: flex;
-  margin: 0px;
-  padding: 0%;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
+.corner-br {
+  @apply right-0 bottom-0 min-w-8 min-h-8 bg-[url('public/images/border/BR.svg')];
 }
 
-.middle{
-  position: absolute;
-  left: 2rem;
-  width: calc(100% - 4rem);
+.stylebox {
+  @apply relative flex flex-col h-full w-full m-0 p-0;
 }
 
-.middle-top{
-  top: 0;
-  border-top: .1rem solid #eda86e;
+.middle {
+  @apply absolute left-8 w-[calc(100%-4rem)];
 }
 
-.middle-bottom{
-  bottom: 0;
-  border-bottom: .1rem solid #eda86e;
+.middle-top {
+  @apply top-0 border-t border-[#eda86e];
 }
 
-.side{
-  position: absolute;
-  width: 0;
-  top: 2rem;
-  height: calc(100% - 4rem);
-  border-right: .1rem solid #eda86e;
+.middle-bottom {
+  @apply bottom-0 border-b border-[#eda86e];
 }
 
-.side-left{
-  left: 0;
+.side {
+  @apply absolute w-0 top-8 h-[calc(100%-4rem)] border-r border-[#eda86e];
 }
 
-.side-right{
-  right: 0;
+.side-left {
+  @apply left-0;
 }
 
-.inline{
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  height: 0;
-  width: 100%;
-  padding: 0%;
+.side-right {
+  @apply right-0;
 }
 
-.v-fill{
-  display: flex;
-  height: calc(100% - 4rem);
+.inline {
+  @apply flex flex-row relative h-0 w-full p-0;
 }
 
-.w-fill{
-  width: calc(100% - .2rem);
+.v-fill {
+  @apply flex h-[calc(100%-4rem)];
 }
 
-
-.taskbar{
-  text-align: center;
-  height: 100%;
-  width: 15rem;
-  min-width: 15rem;
-  margin: 0px;
-  padding: 0%;
+.w-fill {
+  @apply w-[calc(100%-0.2rem)];
 }
 
-.background1{
-  /* background-image: url('public/images/Pattern.png'); */
-  background-repeat: repeat; /* Enables tiling */
-  background-position: top left; /* Aligns tiles from the top-left */
-  background-size: auto; /* Keeps the original image size */
-  height: 100%;
-  width: 100%;
+.taskbar {
+  @apply text-center h-full w-80 min-w-60 m-0 p-1 rounded-md bg-[#879c7d];
 }
 
-.taskbar h2, h3{
-  font-family: 'Helvetica',  'Arial', sans-serif;
-  font-size: 20pt;
-  margin-left: .8cm;
-  margin-right: .8cm;
-  margin-top: 0;
-  margin-bottom: 0;
+.taskbar-content{
+  @apply pt-10;
 }
 
-.taskbar h3{
-  font-size: 10pt;
+.background1 {
+  @apply bg-repeat bg-[top_left] bg-auto h-full w-full;
 }
 
-h1{
-  margin: 0;
+.taskbar h2, .taskbar h3 {
+  @apply font-sans text-[20pt] mx-[0.8cm] my-0;
 }
-.mainContent{
-  /* padding: .8cm 8cm; */
-  /* background-color: #4a92a8; */
-  /* border: 2px solid #4a92a8; */
-  display: flex;
-  max-width: 28cm;
-  width: 100%;
-  /* overflow: hidden;; */
-  /* height: 100%; */
-  /* width: 100%; */
+
+.taskbar h3 {
+  @apply text-[10pt];
+}
+
+h1 {
+  @apply m-0;
+}
+
+.mainContent {
+  @apply flex max-w-[28cm] w-full;
 }
 
 .picture-frame {
-  margin: .8cm auto;
-  border: 2px solid #eda86e;
-  border-radius: 8px;
-  width: 80%;
-  background-color: #72867d;
-  overflow: hidden;
-  /* Removed padding-top */
+  @apply mx-[0.8cm] my-auto border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden;
 }
 
 .picture-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block; /* remove inline gap issues */
+  @apply w-full h-full object-cover block;
 }

@@ -10,9 +10,7 @@ export const Stylebox = ({ content }) => {
       <div className="corner-tr" />
       <div className="side side-left" />
 
-      <div className="inline v-fill">
-        <div className="w-fill">{content}</div>
-      </div>
+      {content}
       <div className="side side-right" />
 
       <div className="corner-bl" />

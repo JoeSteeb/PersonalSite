@@ -1,141 +1,71 @@
-.page-wrapper{
-    /* display: flex;
-    flex-direction: column; */
-    display: flex;
-    padding-left: 0.5cm;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    max-height: 100vh;
-    /* border: 2px solid #eda86e; */
-}
+@import url("../../App.css");
+@import "tailwindcss";
+
 .page-title{
-    /* background-image: url('public/images/Pattern.png'); */
-    /* background-size: cover;  */
-    background-repeat: repeat; /* Enables tiling */
-    background-position: top left; /* Aligns tiles from the top-left */
-    background-size: auto; /* Keeps the original image size */
-    /* border: 2px solid #eda86e; */
-    background-color:#4a92a8;
-    border-radius: 8px;
-    margin-top: 0;
-    margin-bottom: 0;
-    align-items: center;
-    text-align: center;
+    @apply flex-row m-0 p-1 rounded-md bg-[#879c7d] align-middle justify-center;
+    font-family: 'Data70', sans-serif;
+    font-size: 2rem;
+    min-height: 5rem;
 }
+.page-wrapper {
+    @apply flex flex-col h-screen w-full pl-[0.5cm];
+}
+  
 .page-content {
-    margin-top: 0.5cm;
-    background-image: url('public/images/Pattern3.png');
-    border: 2px solid #eda86e;
-    background-color: #a99890;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    overflow-y: auto; /* Allow vertical scrolling */
+  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#a99890] rounded-lg flex flex-col text-center h-full w-full overflow-y-auto relative;
 }
 
-/* Custom scrollbar styles */
 .page-content::-webkit-scrollbar {
-    width: 8px; /* Set scrollbar width */
+  width: 8px;
 }
 
 .page-content::-webkit-scrollbar-thumb {
-    background-color: #fff; /* Set thumb color to white */
-    border-radius: 10px; /* Optional: add rounded corners to the scrollbar thumb */
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .page-content::-webkit-scrollbar-track {
-    background: transparent; /* Set track background to transparent (no outline) */
+  background: transparent;
 }
 
 .page-content::-webkit-scrollbar-button {
-    display: none; /* Hide the arrows at the top and bottom of the scrollbar */
+  display: none;
 }
 
-/* Firefox */
 .page-content {
-    position: relative;
-    scrollbar-width: thin; /* Set the scrollbar width to "thin" */
-    scrollbar-color: #fff transparent; /* Set thumb color to white and track to transparent */
+  scrollbar-width: thin;
+  scrollbar-color: #fff transparent;
 }
 
 .project-view {
-    padding: .4cm;
-    display: grid;
-    /* Try auto-fit so that empty space is collapsed */
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
-    /* Use min-content so rows only take as much space as needed by their content */
-    grid-auto-rows: min-content;
-    /* Set a constant gap of 0.4cm between items (both rows and columns) */
-    gap: 0.4cm;
-    width: 100%;
-  }
-
-  .loading-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #eda86e;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-    transform: translate(-50%, -50%);
+  @apply grid grid-cols-[repeat(auto-fit,minmax(45%,1fr))] auto-rows-min gap-[0.4cm] w-full p-[0.4cm];
 }
 
-/* Keyframe animation for the loading spinner */
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
+.loading-circle {
+  @apply absolute top-1/2 left-1/2 w-10 h-10 border-4 border-[#f3f3f3] border-t-[#fbd499] rounded-full animate-spin;
+  transform: translate(-50%, -50%);
 }
-  
-  .project {
-    border: 2px solid #eda86e;
-    background-color: #72867d;
-    border-radius: 8px;
-    transition: background-color 0.1s ease-in-out;
-    min-width: 50%;
-    padding: 1em;
-    cursor: pointer;
-  }
+
+.project {
+  @apply border-2 border-[#fbd499] bg-[#cbc385] rounded-lg transition-colors duration-100 ease-in-out min-w-[50%] p-4 cursor-pointer;
+}
 
 .project:hover {
-    background-color: #eda86e; /* New color on hover */
+  @apply bg-[#fbd499];
 }
 
-.titlebar{
-    display: flex;
-    flex-direction: row;
-    /* background-color: red; */
-    text-align: center;
+.titlebar {
+  @apply flex flex-row text-center align-middle justify-center min-h-20;
 }
 
-.title-wrapper{
-    text-align: center;
-    /* background-color: blue; */
-    width: 100%;
+.title-wrapper {
+  @apply flex items-center w-full h-full justify-center ;
 }
 
-.back-button{
-    position: absolute;
-    left: 7%;
-    transform: translate(0, 60%);
-    width: 3cm;
-    border: 2px solid #eda86e;
-    color: white;
-    border-radius: 8px;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    background-color: #b8868e;
-    cursor: pointer;
-    
-    /* Smooth background color transition */
-    transition: background-color 0.1s ease-in-out;
+.back-button {
+  @apply absolute left-[7%] translate-y-[60%] w-[3cm] border-2 border-[#eda86e] text-white rounded-lg bg-[#b8868e] cursor-pointer transition-colors duration-100 ease-in-out;
 }
 
 .back-button:hover {
-    background-color: #eda86e; /* New color on hover */
+  @apply bg-[#eda86e];
 }

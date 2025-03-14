@@ -11,13 +11,16 @@ import { faDiagramProject } from "@fortawesome/free-solid-svg-icons";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
+import "./components/Pages/page.css";
 
 function App() {
   const pages = {
     About: {
       Page: (
         <PageGeneric
-          title={<Stylebox content={<h1>About</h1>} />}
+          title={
+            <Stylebox content={<h1 className="title-wrapper">About</h1>} />
+          }
           content={"Test"}
         />
       ),
@@ -45,7 +48,7 @@ function App() {
     setTaskbar(
       taskbarBuilder.taskbar(pages, "About", setTaskbar),
       <PageGeneric
-        title={<Stylebox content={<h1>About</h1>} />}
+        title={<Stylebox content={<h1 className="title-wrapper">About</h1>} />}
         content={"Test"}
       />
     );
@@ -58,12 +61,12 @@ function App() {
           <div className="taskbar">
             <Stylebox
               content={
-                <>
+                <div className="taskbar-content">
                   <img className="picture-frame" src={"/images/headshot.JPG"} />
                   <h2>Joseph Steeb</h2>
                   <h3>Software Developer</h3>
                   {taskbarState}
-                </>
+                </div>
               }
             />
           </div>

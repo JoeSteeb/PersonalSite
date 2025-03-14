@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import "./page.css";
+import "./projects.css";
+import { useState, useEffect } from "react";
 import { PageGeneric } from "./pageGeneric";
 import projects from "./projectjson";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,9 +50,7 @@ export const Projects = () => {
                   {"  Back"}
                 </button>
               )}
-              <div className="title-wrapper">
-                <h1>{title}</h1>
-              </div>
+              <div className="title-wrapper">{title}</div>
             </div>
           }
         />
