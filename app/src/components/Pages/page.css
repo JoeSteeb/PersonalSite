@@ -8,12 +8,14 @@
     min-height: 5rem;
 }
 .page-wrapper {
-    @apply flex flex-col h-screen w-full pl-[0.5cm];
+    @apply flex flex-col h-full w-full pl-[0.5cm];
 }
   
 .page-content {
-  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#a99890] rounded-lg flex flex-col text-center h-full w-full overflow-y-auto relative;
+  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#a99890] rounded-lg flex flex-col text-center h-full w-full overflow-hidden relative;
+  flex-grow: 1; /* This allows the div to take up remaining available height */
 }
+
 
 .page-content::-webkit-scrollbar {
   width: 8px;
@@ -63,7 +65,7 @@
 }
 
 .back-button {
-  @apply absolute left-[7%] translate-y-[60%] w-[3cm] border-2 border-[#eda86e] text-white rounded-lg bg-[#b8868e] cursor-pointer transition-colors duration-100 ease-in-out;
+  @apply absolute font-sans text-base left-[7%] top-[15%] w-[3cm] border-1 border-[#eda86e] text-white rounded-lg bg-[#b8868e] cursor-pointer transition-colors duration-100 ease-in-out;
 }
 
 .back-button:hover {

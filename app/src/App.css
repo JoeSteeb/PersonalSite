@@ -15,7 +15,7 @@
 }
 
 .mainWrap {
-  @apply pl-[10%] pt-[0.8cm] pb-[0.8cm] w-screen h-screen flex bg-white;
+  @apply pl-[10%] pt-[0.8cm] pb-[0.8cm] w-screen h-screen flex bg-white overflow-y-hidden;
   background-image: url('public/images/icons/background/Desktop.svg');
 }
 
@@ -40,7 +40,11 @@
 }
 
 .stylebox {
-  @apply relative flex flex-col h-full w-full m-0 p-0;
+  @apply relative flex flex-col h-full w-full m-0 p-0 align-middle;
+}
+
+.styleflex{
+  @apply flex w-full h-full justify-center;
 }
 
 .middle {
@@ -48,11 +52,11 @@
 }
 
 .middle-top {
-  @apply top-0 border-t border-[#eda86e];
+  @apply top-0 border-t-1 border-[#eda86e];
 }
 
 .middle-bottom {
-  @apply bottom-0 border-b border-[#eda86e];
+  @apply bottom-0 border-b-1 border-[#eda86e];
 }
 
 .side {
@@ -80,11 +84,11 @@
 }
 
 .taskbar {
-  @apply text-center h-full w-80 min-w-60 m-0 p-1 rounded-md bg-[#879c7d];
+  @apply  rounded-md max-w-60 bg-[#879c7d] p-1;
 }
 
 .taskbar-content{
-  @apply pt-10;
+  @apply pt-10 align-middle;
 }
 
 .background1 {
@@ -92,7 +96,7 @@
 }
 
 .taskbar h2, .taskbar h3 {
-  @apply font-sans text-[20pt] mx-[0.8cm] my-0;
+  @apply font-sans text-[20pt] mx-[0.8cm] my-0 text-center;
 }
 
 .taskbar h3 {
@@ -108,7 +112,7 @@ h1 {
 }
 
 .picture-frame {
-  @apply mx-[0.8cm] my-auto border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden;
+  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden mx-auto;
 }
 
 .picture-frame img {

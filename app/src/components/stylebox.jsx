@@ -5,6 +5,7 @@ import "../App.css";
 export const Stylebox = ({ content }) => {
   return (
     <div className="stylebox">
+      <div className="styleflex">
       <div className="corner-tl" />
       <div className="middle middle-top" />
       <div className="corner-tr" />
@@ -16,6 +17,7 @@ export const Stylebox = ({ content }) => {
       <div className="corner-bl" />
       <div className="middle middle-bottom" />
       <div className="corner-br" />
+    </div>
     </div>
   );
 };
