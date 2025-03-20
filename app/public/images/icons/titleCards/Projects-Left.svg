@@ -1,0 +1,13 @@
+<svg width="117" height="26" viewBox="0 0 117 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Projects-Left" clip-path="url(#clip0_56_1356)">
+<path id="path" d="M117 14.1538H63.7098M63.7098 14.1538V3H26M63.7098 14.1538H6.5M117 22H26" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<rect id="Rectangle 2" x="-0.5" y="0.5" width="6" height="6" transform="matrix(-1 0 0 1 25 19)" stroke="white"/>
+<rect id="Rectangle 3" x="-0.5" y="0.5" width="6" height="6" transform="matrix(-1 0 0 1 25 0)" stroke="white"/>
+<rect id="Rectangle 4" x="-0.5" y="0.5" width="6" height="6" transform="matrix(-1 0 0 1 6 11)" stroke="white"/>
+</g>
+<defs>
+<clipPath id="clip0_56_1356">
+<rect width="117" height="26" fill="white" transform="matrix(-1 0 0 1 117 0)"/>
+</clipPath>
+</defs>
+</svg>

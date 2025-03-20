@@ -56,16 +56,22 @@ function App() {
 
   return (
     <>
-      <div className="mainWrap">
+      <div className="absolute right-0 top-0 h-[100%] w-[100%] bg-white"/>
+      <div className="absolute right-0 top-0 h-[100%] w-[50%] bg-no-repeat bg-right bg-[url('public/images/icons/background/Background_Right.svg')]"/>
+      <div className="absolute left-0 top-0 h-[100%] w-[50%] bg-no-repeat bg-[url('public/images/icons/background/Background_Left.svg')]"/>
+      <div className="mainWrap" >
+        <div className="background-right"/>
         <div className="mainContent">
           <div className="taskbar">
             <Stylebox
               content={
                 <div className="taskbar-content">
-                  <img className="picture-frame" src={"/images/headshot.JPG"} />
-                  <h2>Joseph Steeb</h2>
-                  <h3>Software Developer</h3>
-                  {taskbarState}
+                  <img className="picture-frame mt-5" src={"/images/headshot.JPG"} />
+                  <h2 className="!mt-5 border-b-2 border-[#eda86e]">Joseph Steeb</h2>
+                  <h3 className="pt-1">Software Developer</h3>
+                  <div className="mt-5">
+                    {taskbarState}
+                  </div>
                 </div>
               }
             />

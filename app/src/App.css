@@ -15,8 +15,11 @@
 }
 
 .mainWrap {
-  @apply pl-[10%] pt-[0.8cm] pb-[0.8cm] w-screen h-screen flex bg-white overflow-y-hidden;
-  background-image: url('public/images/icons/background/Desktop.svg');
+  @apply justify-center pt-8 pb-8 w-screen h-screen flex overflow-y-hidden relative;
+  /* background-image: url('public/images/icons/background/Background_Right.svg'); */
+}
+.backgruond_right {
+  @apply absolute right-0 top-0 h-[100%] w-[50%] bg-[url('./public/images/icons/Background_Right.svg')];
 }
 
 .corner-tl, .corner-tr, .corner-bl, .corner-br {
