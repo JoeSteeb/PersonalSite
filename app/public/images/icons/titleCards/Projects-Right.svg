@@ -1,9 +1,12 @@
 <svg width="117" height="26" viewBox="0 0 117 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Projects" clip-path="url(#clip0_7_1212)">
-<path id="path" d="M0 14.1538H53.2902M53.2902 14.1538V3H91M53.2902 14.1538H110.5M0 22H91" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-<rect id="Rectangle 2" x="91.5" y="19.5" width="6" height="6" stroke="white"/>
-<rect id="Rectangle 3" x="91.5" y="0.5" width="6" height="6" stroke="white"/>
-<rect id="Rectangle 4" x="110.5" y="11.5" width="6" height="6" stroke="white"/>
+<g id="Projects-Right" clip-path="url(#clip0_7_1212)">
+<path id="path" d="M0 14.1538H53.2902M53.2902 14.1538V3H91M53.2902 14.1538H110.129M0 22H91" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+<g id="Rectangle 15">
+<path d="M110 11H117V18H110V12H111V17H116V12H110V11Z" fill="white"/>
+<path d="M91 -0.5H98V6.5H91V0.5H92V5.5H97V0.5H91V-0.5Z" fill="white"/>
+<path d="M91 18.5H98V25.5H91V19.5H92V24.5H97V19.5H91V18.5Z" fill="white"/>
+</g>
+<rect id="Rectangle 18" x="112" y="13" width="3" height="3" fill="#FF0404"/>
 </g>
 <defs>
 <clipPath id="clip0_7_1212">

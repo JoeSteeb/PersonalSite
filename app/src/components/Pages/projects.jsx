@@ -34,7 +34,7 @@ export const Projects = () => {
   ));
 
   useEffect(() => {
-    setContent(projectElement);
+    setContent(projectElements);
   }, []);
 
   return (
