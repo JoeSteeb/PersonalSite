@@ -25,7 +25,7 @@ export const Projects = () => {
       onClick={() => {
         setFlipper(true);
         setTitle(project.title);
-        setContent(projec.page);
+        setContent(project.page);
       }}
     >
       <img className="picture-frame" src={project.image} alt={project.title} />
