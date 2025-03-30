@@ -56,27 +56,30 @@ function App() {
 
   return (
     <>
-      <div className="absolute right-0 top-0 h-[100%] w-[100%] bg-white"/>
-      <div className="absolute right-0 top-0 h-[100%] w-[50%] bg-no-repeat bg-right bg-[url('public/images/icons/background/Background_Right.svg')]"/>
-      <div className="absolute left-0 top-0 h-[100%] w-[50%] bg-no-repeat bg-[url('public/images/icons/background/Background_Left.svg')]"/>
-      <div className="mainWrap" >
-        <div className="background-right"/>
-        <div className="mainContent">
-          <div className="taskbar">
-            <Stylebox
-              content={
-                <div className="taskbar-content">
-                  <img className="picture-frame mt-5" src={"/images/headshot.JPG"} />
-                  <h2 className="!mt-5 border-b-2 border-[#eda86e]">Joseph Steeb</h2>
-                  <h3 className="pt-1">Software Developer</h3>
-                  <div className="mt-5">
-                    {taskbarState}
+      <div className="bg-white flex flex-row h-screen justify-center items-center gap-0 px-4">
+        <div className="mainWrap">
+          <div className=" bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
+          <div className="mainContent">
+            <div className="taskbar">
+              <Stylebox
+                content={
+                  <div className="taskbar-content">
+                    <img
+                      className="picture-frame mt-5"
+                      src={"/images/headshot.JPG"}
+                    />
+                    <h2 className="!mt-5 border-b-2 border-[#eda86e]">
+                      Joseph Steeb
+                    </h2>
+                    <h3 className="pt-1">Software Developer</h3>
+                    <div className="mt-5">{taskbarState}</div>
                   </div>
-                </div>
-              }
-            />
+                }
+              />
+            </div>
+            {pageContent}
           </div>
-          {pageContent}
+          <div className="h-full w-200 bg-no-repeat bg-left-bottom bg-[url('/images/icons/background/Background_Right.svg')] overflow-hidden" />
         </div>
       </div>
     </>

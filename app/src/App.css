@@ -15,11 +15,8 @@
 }
 
 .mainWrap {
-  @apply justify-center pt-8 pb-8 w-screen h-screen flex overflow-y-hidden relative;
+  @apply  h-screen flex overflow-y-hidden relative;
   /* background-image: url('public/images/icons/background/Background_Right.svg'); */
-}
-.backgruond_right {
-  @apply absolute right-0 top-0 h-[100%] w-[50%] bg-[url('./public/images/icons/Background_Right.svg')];
 }
 
 .corner-tl, .corner-tr, .corner-bl, .corner-br {
@@ -111,7 +108,7 @@ h1 {
 }
 
 .mainContent {
-  @apply flex max-w-[28cm] w-full;
+  @apply pt-8 pb-8 flex max-w-[28cm] w-full;
 }
 
 .picture-frame {
