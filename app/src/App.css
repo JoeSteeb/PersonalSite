@@ -1,25 +1,41 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Data70';
-  src: url('/fonts/Data70.ttf') format('truetype');
+  font-family: "Data70";
+  src: url("/fonts/Data70.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plex";
+  src: url("/fonts/IBMPlexSans-Text.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 .border-multi {
   border-color: var(--border-primary, transparent)
-                var(--border-secondary, transparent)
-                var(--border-secondary, transparent)
-                var(--border-primary, transparent);
+    var(--border-secondary, transparent) var(--border-secondary, transparent)
+    var(--border-primary, transparent);
 }
 
 .mainWrap {
-  @apply  h-screen flex overflow-y-hidden relative;
+  @apply h-screen flex overflow-y-hidden relative;
   /* background-image: url('public/images/icons/background/Background_Right.svg'); */
 }
 
-.corner-tl, .corner-tr, .corner-bl, .corner-br {
+.corner-tl,
+.corner-tr,
+.corner-bl,
+.corner-br {
   @apply w-8 h-8 absolute bg-cover bg-no-repeat;
 }
 
@@ -43,7 +59,7 @@
   @apply relative flex flex-col h-full w-full m-0 p-0 align-middle;
 }
 
-.styleflex{
+.styleflex {
   @apply flex w-full h-full justify-center;
 }
 
@@ -84,10 +100,10 @@
 }
 
 .taskbar {
-  @apply  rounded-md max-w-60 bg-[#879c7d] p-1;
+  @apply rounded-md max-w-60 bg-[#879c7d] p-1;
 }
 
-.taskbar-content{
+.taskbar-content {
   @apply pt-10 align-middle;
 }
 
@@ -95,8 +111,21 @@
   @apply bg-repeat bg-[top_left] bg-auto h-full w-full;
 }
 
-.taskbar h2, .taskbar h3 {
-  @apply font-sans text-[20pt] mx-[0.8cm] my-0 text-center;
+h2,
+h3,
+p,
+button,
+li {
+  @apply font-["Plex"];
+}
+
+h2 {
+  @apply border-b-2 border-[#eda86e];
+}
+
+.taskbar h2,
+.taskbar h3 {
+  @apply text-[20pt] mx-[0.8cm] my-0 text-center;
 }
 
 .taskbar h3 {

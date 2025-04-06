@@ -1,21 +1,20 @@
 @import url("../../App.css");
 @import "tailwindcss";
 
-.page-title{
-    @apply flex-row m-0 p-1 rounded-md bg-[#879c7d] align-middle justify-center;
-    font-family: 'Data70', sans-serif;
-    font-size: 2rem;
-    min-height: 5rem;
+.page-title {
+  @apply flex-row m-0 p-1 rounded-md bg-[#879c7d] align-middle justify-center;
+  font-family: "Data70", sans-serif;
+  font-size: 2rem;
+  min-height: 5rem;
 }
 .page-wrapper {
-    @apply flex flex-col h-full w-full pl-[0.5cm];
-}
-  
-.page-content {
-  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#f1ddc3] rounded-lg flex flex-col text-center h-full w-full overflow-hidden relative;
-  flex-grow: 1; /* This allows the div to take up remaining available height */
+  @apply flex flex-col h-full w-full pl-[0.5cm];
 }
 
+.page-content {
+  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#f1ddc3] text-[#4a4a4a] rounded-lg flex flex-col text-center h-full w-full overflow-hidden relative;
+  flex-grow: 1; /* This allows the div to take up remaining available height */
+}
 
 .page-content::-webkit-scrollbar {
   width: 8px;
@@ -61,7 +60,7 @@
 }
 
 .title-wrapper {
-  @apply flex items-center w-full h-full justify-center ;
+  @apply flex items-center w-full h-full justify-center;
 }
 
 .back-button {

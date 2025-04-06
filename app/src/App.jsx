@@ -3,6 +3,7 @@ import * as taskbarBuilder from "./components/taskbarBuilder.jsx";
 import { PageGeneric } from "./components/Pages/pageGeneric.jsx";
 import { Projects } from "./components/Pages/projects.jsx";
 import { Resume } from "./components/Pages/resume.jsx";
+import { About } from "./components/Pages/about.jsx";
 import { Stylebox } from "./components/stylebox.jsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,23 +17,16 @@ import "./components/Pages/page.css";
 function App() {
   const pages = {
     About: {
-      Page: (
-        <PageGeneric
-          title={
-            <Stylebox content={<h1 className="title-wrapper">About</h1>} />
-          }
-          content={"Test"}
-        />
-      ),
+      Page: <About />,
       Icon: <FontAwesomeIcon icon={faAddressCard} />,
-    },
-    Projects: {
-      Page: <Projects />,
-      Icon: <FontAwesomeIcon icon={faDiagramProject} />,
     },
     Resume: {
       Page: <Resume />,
       Icon: <FontAwesomeIcon icon={faFile} />,
+    },
+    Projects: {
+      Page: <Projects />,
+      Icon: <FontAwesomeIcon icon={faDiagramProject} />,
     },
   };
 
@@ -45,13 +39,7 @@ function App() {
   };
 
   useEffect(() => {
-    setTaskbar(
-      taskbarBuilder.taskbar(pages, "About", setTaskbar),
-      <PageGeneric
-        title={<Stylebox content={<h1 className="title-wrapper">About</h1>} />}
-        content={"Test"}
-      />
-    );
+    setTaskbar(taskbarBuilder.taskbar(pages, "About", setTaskbar), <About />);
   }, []);
 
   return (
