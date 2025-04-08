@@ -1,8 +1,36 @@
 import "./page.css";
+import PieChart from "../pieChart";
 import { PageGeneric } from "./pageGeneric";
 import { Stylebox } from "../stylebox";
 
 export const About = () => {
+  const languageData = [
+    {
+      percent: 40,
+      color: "#ff6384",
+      icon: "/images/icons/languages/Python.svg",
+    },
+    {
+      percent: 25,
+      color: "#ffcd56",
+      icon: "/images/icons/languages/C++.svg",
+    },
+    { percent: 35, color: "#36a2eb", icon: "/images/icons/languages/CS.svg" },
+  ];
+
+  const OSData = [
+    {
+      percent: 60,
+      color: "#ff6384",
+      label: "Windows",
+    },
+    {
+      percent: 40,
+      color: "#ffcd56",
+      icon: "/images/icons/languages/Tux.svg",
+    },
+  ];
+
   return (
     <PageGeneric
       title={<Stylebox content={<div className="title-wrapper">About</div>} />}
@@ -15,26 +43,17 @@ export const About = () => {
             software development skills to every project I undertake.
           </p>
 
-          <h2 className="pt-5 ">Professional Journey</h2>
-          <p className="pt-2">
-            My professional path began at Washington State University, where I
-            earned a Bachelor of Science in Software Engineering. Alongside my
-            studies, I worked as an IT Technician for the Carson College of
-            Business, handling support tickets, software deployments, and
-            hardware repairs. This role grounded me in practical IT systems
-            management and introduced me to enterprise workflows.
-          </p>
+          <h2 className="pt-5">Skills Breakdown</h2>
+          <div className="flex w-full justify-center items-end">
+            <div className="pt-5 w-70 flex justify-center">
+              <PieChart data={languageData} />
+            </div>
+            <div className="pt-5 w-35 h-35 flex justify-center">
+              <PieChart data={OSData} />
+            </div>
+          </div>
 
-          <p className="pt-2">
-            From there, I took on a dual-role at the Institute for Shock
-            Physics, where I supported researchers both technically and
-            programmatically. I redesigned a ballistic calculation interface
-            using Python and Qt, enabling greater usability for lab teams. I
-            also developed automation tools to improve cybersecurity response
-            times across over 100 endpoints, gaining experience in endpoint
-            management, scripting, and server administration.
-          </p>
-
+          <h2 className="pt-7">Professional Journey</h2>
           <p className="pt-2">
             Currently, I serve as a Data Migration Specialist at Levitek. My
             work revolves around ETL processes, data transformation, and
@@ -45,13 +64,32 @@ export const About = () => {
             handling protocols.
           </p>
 
+          <p className="pt-2">
+            Before that, I took on a dual-role at the Institute for Shock
+            Physics, where I supported researchers both technically and
+            programmatically. I redesigned a ballistic calculation interface
+            using Python and Qt, enabling greater usability for lab teams. I
+            also developed automation tools to improve cybersecurity response
+            times across over 100 endpoints, gaining experience in endpoint
+            management, scripting, and server administration.
+          </p>
+
+          <p className="pt-2">
+            My professional path began at Washington State University, where I
+            earned a Bachelor of Science in Software Engineering. Alongside my
+            studies, I worked as an IT Technician for the Carson College of
+            Business, handling support tickets, software deployments, and
+            hardware repairs. This role grounded me in practical IT systems
+            management and introduced me to enterprise workflows.
+          </p>
+
           <section>
             <h2 className="pt-5">Highlighted Projects</h2>
             <p className="pt-2">
               I take pride in building solutions that are both technically sound
               and user-focused. Some of my favorite projects include:
             </p>
-            <ul>
+            <ul className="list-disc list-inside pt-2 space-y-1">
               <li>
                 An interactive network visualization tool built with React,
                 D3.js, and Flask for WSU’s Center for Environmental Research,
@@ -70,7 +108,7 @@ export const About = () => {
 
           <section>
             <h2 className="pt-5">Core Competencies</h2>
-            <p>
+            <p className="pt-2">
               My skill set spans software engineering, IT systems, and data
               pipelines. I'm proficient in technologies like SQL, C#, Python,
               C++, JavaScript, React, Docker, and both Windows and Linux
@@ -81,11 +119,11 @@ export const About = () => {
 
           <section>
             <h2 className="pt-5">Get in Touch</h2>
-            <p>
+            <p className="pt-2">
               If you're interested in collaborating, have a project in mind, or
               just want to connect, feel free to reach out:
             </p>
-            <ul>
+            <ul className="list-none pt-2 space-y-1">
               <li>
                 Email: <a href="mailto:josteeb@gmail.com">josteeb@gmail.com</a>
               </li>

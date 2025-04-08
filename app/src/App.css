@@ -120,7 +120,7 @@ li {
 }
 
 h2 {
-  @apply border-b-2 border-[#eda86e];
+  @apply border-b-2 text-[15pt] border-[#eda86e];
 }
 
 .taskbar h2,

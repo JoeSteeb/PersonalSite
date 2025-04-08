@@ -7,12 +7,13 @@ import { faPersonThroughWindow } from "@fortawesome/free-solid-svg-icons";
 import { Stylebox } from "../stylebox";
 
 export const Projects = () => {
-
-  const pageTitle = <div className="flex flex-row items-center">
-    <div className="w-30 h-7 mr-5 bg-[url(/images/icons/titleCards/Projects-Left.svg)] bg-no-repeat"/>
-    Projects
-    <div className="w-30 h-7 ml-5 bg-[url(/images/icons/titleCards/Projects-Right.svg)] bg-no-repeat"/>
-  </div>;
+  const pageTitle = (
+    <div className="flex flex-row items-center">
+      <div className="w-30 h-7 mr-5 bg-[url(/images/icons/titleCards/Projects-Left.svg)] bg-no-repeat" />
+      Projects
+      <div className="w-30 h-7 ml-5 bg-[url(/images/icons/titleCards/Projects-Right.svg)] bg-no-repeat" />
+    </div>
+  );
 
   const [flipper, setFlipper] = useState(false);
   const [content, setContent] = useState(null);
@@ -29,7 +30,7 @@ export const Projects = () => {
       }}
     >
       <img className="picture-frame" src={project.image} alt={project.title} />
-      <h2>{project.title}</h2>
+      <h3>{project.title}</h3>
     </div>
   ));
 
