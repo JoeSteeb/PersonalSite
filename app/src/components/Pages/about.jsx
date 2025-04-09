@@ -6,27 +6,29 @@ import { Stylebox } from "../stylebox";
 export const About = () => {
   const languageData = [
     {
-      percent: 40,
-      color: "#ff6384",
+      percent: 20,
+      color: "#a52b36",
       icon: "/images/icons/languages/Python.svg",
     },
     {
-      percent: 25,
-      color: "#ffcd56",
+      percent: 20,
+      color: "#f6c25d",
       icon: "/images/icons/languages/C++.svg",
     },
-    { percent: 35, color: "#36a2eb", icon: "/images/icons/languages/CS.svg" },
+    { percent: 25, color: "#4a92a8", icon: "/images/icons/languages/CS.svg" }, // C#
+    { percent: 20, color: "#879c7d", icon: "/images/icons/languages/JS.svg" }, // JavaScript
+    { percent: 10, color: "#879c7d", icon: "/images/icons/languages/TS.svg" }, //TypeScript
   ];
 
   const OSData = [
     {
       percent: 60,
-      color: "#ff6384",
-      label: "Windows",
+      color: "#534c4c",
+      icon: "/images/icons/languages/Win10.svg",
     },
     {
       percent: 40,
-      color: "#ffcd56",
+      color: "#f6c25d",
       icon: "/images/icons/languages/Tux.svg",
     },
   ];

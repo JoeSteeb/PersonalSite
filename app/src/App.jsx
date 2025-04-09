@@ -44,7 +44,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-white flex flex-row h-screen justify-center items-center gap-0 px-4">
+      <div className="bg-[#ffffff] flex flex-row h-screen justify-center items-center gap-0 px-4">
         <div className="mainWrap">
           <div className=" bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
           <div className="mainContent">

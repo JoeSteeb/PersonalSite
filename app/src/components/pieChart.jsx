@@ -82,7 +82,11 @@ const PieChart = ({ data }) => {
           }}
         >
           {data[i].icon && (
-            <img src={data[i].icon} alt={data[i].label} className="w-20 h-20" />
+            <img
+              src={data[i].icon}
+              alt={data[i].label}
+              style={{ width: "3rem", height: "3rem" }}
+            />
           )}
           <span>{data[i].label}</span>
         </div>
