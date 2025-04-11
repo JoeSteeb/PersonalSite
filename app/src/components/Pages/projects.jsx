@@ -30,7 +30,7 @@ export const Projects = () => {
       }}
     >
       <img className="picture-frame" src={project.image} alt={project.title} />
-      <h3>{project.title}</h3>
+      <h3 className="pt-5">{project.title}</h3>
     </div>
   ));
 

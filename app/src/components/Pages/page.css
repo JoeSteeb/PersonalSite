@@ -39,7 +39,7 @@
 }
 
 .project-view {
-  @apply grid grid-cols-[repeat(auto-fit,minmax(45%,1fr))] auto-rows-min gap-[0.4cm] w-full p-[0.4cm];
+  @apply grid grid-cols-[repeat(auto-fit,minmax(45%,1fr))] overflow-y-auto auto-rows-min gap-[0.4cm] w-full p-[0.4cm];
 }
 
 .loading-circle {
