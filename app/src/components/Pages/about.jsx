@@ -38,7 +38,37 @@ export const About = () => {
       title={<Stylebox content={<div className="title-wrapper">About</div>} />}
       content={
         <div className="p-5 text-left overflow-y-scroll">
-          <p>
+          <div className="flex justify-center gap-6 pt-2">
+            <a
+              href="https://github.com/JoeSteeb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#4a4a4a] border-b-2 border-[#fbd499] hover:text-[#000] hover:border-[#cbc385] transition-colors duration-100"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                alt="GitHub"
+                className="w-4 h-4"
+              />
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/joe-steeb-3594451b0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#4a4a4a] border-b-2 border-[#fbd499] hover:text-[#000] hover:border-[#cbc385] transition-colors duration-100"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                alt="LinkedIn"
+                className="w-4 h-4"
+              />
+              LinkedIn
+            </a>
+          </div>
+
+          <p className="pt-5">
             Hello, I'm Joe Steeb — a software engineer and IT professional with
             an interest in data systems, automation, and scalable
             infrastructure. I bring a blend of hands-on IT experience and modern

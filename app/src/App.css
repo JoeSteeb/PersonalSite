@@ -100,7 +100,7 @@
 }
 
 .taskbar {
-  @apply rounded-md max-w-60 bg-[#879c7d] p-1;
+  @apply rounded-md w-80 bg-[#879c7d] p-1;
 }
 
 .taskbar-content {
@@ -137,11 +137,15 @@ h1 {
 }
 
 .mainContent {
-  @apply pt-8 pb-8 flex max-w-[28cm] w-full;
+  @apply pt-8 pb-8 flex min-w-250 max-w-250;
 }
 
 .picture-frame {
-  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden mx-auto;
+  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden mx-auto align-baseline;
+}
+
+.picture-frame-no-center {
+  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden max-w-none align-baseline;
 }
 
 .picture-frame img {
