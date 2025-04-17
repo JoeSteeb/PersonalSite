@@ -7,7 +7,7 @@ export const Resume = () => {
   return (
     <PageGeneric
       title={<Stylebox content={<div className="title-wrapper">Resume</div>} />}
-      content={<PDFViewer path={"public/Resume.pdf"} />}
+      content={<PDFViewer path={"Resume.pdf"} />}
     />
   );
 };

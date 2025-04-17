@@ -29,7 +29,7 @@
 
 .mainWrap {
   @apply h-screen flex overflow-y-hidden relative;
-  /* background-image: url('public/images/icons/background/Background_Right.svg'); */
+  /* background-image: url('/images/icons/background/Background_Right.svg'); */
 }
 
 .corner-tl,
@@ -40,19 +40,19 @@
 }
 
 .corner-tl {
-  @apply left-0 top-0 bg-[url('public/images/border/TL.svg')];
+  @apply left-0 top-0 bg-[url('/images/border/TL.svg')];
 }
 
 .corner-tr {
-  @apply right-0 top-0 bg-[url('public/images/border/TR.svg')];
+  @apply right-0 top-0 bg-[url('/images/border/TR.svg')];
 }
 
 .corner-bl {
-  @apply left-0 bottom-0 min-w-8 min-h-8 bg-[url('public/images/border/BL.svg')];
+  @apply left-0 bottom-0 min-w-8 min-h-8 bg-[url('/images/border/BL.svg')];
 }
 
 .corner-br {
-  @apply right-0 bottom-0 min-w-8 min-h-8 bg-[url('public/images/border/BR.svg')];
+  @apply right-0 bottom-0 min-w-8 min-h-8 bg-[url('/images/border/BR.svg')];
 }
 
 .stylebox {
