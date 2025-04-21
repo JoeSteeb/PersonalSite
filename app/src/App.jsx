@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import * as taskbarBuilder from "./components/taskbarBuilder.jsx";
+import { useState, useEffect, useRef } from "react";
+import { renderTaskbar } from "./components/taskbarBuilder.jsx";
 import { PageGeneric } from "./components/Pages/pageGeneric.jsx";
 import { Projects } from "./components/Pages/projects.jsx";
 import { Resume } from "./components/Pages/resume.jsx";
@@ -15,30 +15,51 @@ import "./App.css";
 import "./components/Pages/page.css";
 
 function App() {
+  const [pageOrder, setPageOrder] = useState(["About", "Projects", "Resume"]);
+  const [taskbarState, setTaskbarState] = useState(null);
+  const [pageContent, setpageContent] = useState(null);
+  const refs = Object.fromEntries(pageOrder.map((str) => [str, useRef(null)]));
+
   const pages = {
     About: {
-      Page: <About />,
+      Page: (
+        <div className="flex" ref={refs.About}>
+          <About />
+        </div>
+      ),
       Icon: <FontAwesomeIcon icon={faAddressCard} />,
     },
     Projects: {
-      Page: <Projects />,
+      Page: (
+        <div ref={refs.Projects}>
+          <Projects />
+        </div>
+      ),
       Icon: <FontAwesomeIcon icon={faDiagramProject} />,
     },
     Resume: {
-      Page: <Resume />,
+      Page: (
+        <div ref={refs.Resume}>
+          <Resume />
+        </div>
+      ),
       Icon: <FontAwesomeIcon icon={faFile} />,
     },
   };
 
-  const [taskbarState, setTaskbarState] = useState(null);
-  const [pageContent, setpageContent] = useState(null);
-  const [pageOrder, setPageOrder] = useState(["About", "Projects", "Resume"]);
-
   const { sharedLayout, setSharedLayout } = useLayout("desktop");
 
-  const setTaskbar = (taskbar, page) => {
+  const setTaskbar = (taskbar, pageKey) => {
     setTaskbarState(taskbar);
-    setpageContent(page);
+    if (sharedLayout === "desktop") {
+      setpageContent(pages[pageKey].Page);
+    } else {
+      refs[pageKey].current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
   };
 
   function checkLayout() {
@@ -47,91 +68,82 @@ function App() {
   }
 
   useEffect(() => {
-    setTaskbar(taskbarBuilder.taskbar(pages, "About", setTaskbar), <About />);
+    setTaskbar(renderTaskbar(pages, "About", setTaskbar), "About");
     checkLayout();
-    const handleResize = () => {
-      checkLayout();
-    };
+    const handleResize = () => checkLayout();
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   if (sharedLayout === "desktop") {
     return (
-      <>
-        <div className="bg-[#ffffff] flex flex-row h-screen justify-center items-center gap-0 px-4">
-          <div className="mainWrap">
-            <div className=" bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
-            <div className="mainContent">
-              <div className="taskbar">
+      <div className="bg-[#ffffff] flex flex-row h-screen justify-center items-center gap-0 px-4">
+        <div className="mainWrap">
+          <div className=" bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
+          <div className="mainContent">
+            <div className="taskbar">
+              <Stylebox
+                content={
+                  <div className="pt-10 align-middle">
+                    <img
+                      className="picture-frame mt-5"
+                      src="/images/headshot.JPG"
+                    />
+                    <h2 className="!mt-5 border-b-2 border-[#eda86e]">
+                      Joseph Steeb
+                    </h2>
+                    <h3 className="pt-1">Software Developer</h3>
+                    <div className="mt-5">{taskbarState}</div>
+                  </div>
+                }
+              />
+            </div>
+            {pageContent}
+          </div>
+          <div className="h-full w-200 bg-no-repeat bg-left-bottom bg-[url('/images/icons/background/Background_Right.svg')] overflow-hidden" />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="bg-[#ffffff] flex flex-col h-screen w-screen justify-center items-center gap-0 px-4 overflow-hidden">
+        <div className="mainWrap overflow-x-hidden">
+          <div className="bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
+          <div className="flex flex-col">
+            <div className="z-100 w-full pl-5 pr-5 drop-shadow-md">
+              <div className="rounded-md w-full mt-5 mb-0 h-40 bg-[#879c7d] p-1">
                 <Stylebox
                   content={
-                    <div className="pt-10 align-middle">
-                      <img
-                        className="picture-frame mt-5"
-                        src={"/images/headshot.JPG"}
-                      />
-                      <h2 className="!mt-5 border-b-2 border-[#eda86e]">
-                        Joseph Steeb
-                      </h2>
-                      <h3 className="pt-1">Software Developer</h3>
-                      <div className="mt-5">{taskbarState}</div>
+                    <div className="flex flex-col h-full w-full items-center justify-center">
+                      <div className="w-full flex flex-row justify-center items-center gap-3 m-2">
+                        <img
+                          className="border border-[#eda86e] rounded-md min-w-20 h-20 bg-[#72867d] overflow-hidden"
+                          src="/images/headshot.JPG"
+                        />
+                        <div className="flex flex-col justify-center items-center">
+                          <h2 className="!mt-1 border-b-2 border-[#eda86e]">
+                            Joseph Steeb
+                          </h2>
+                          <h3 className="pt-1">Software Developer</h3>
+                        </div>
+                      </div>
+                      <div className="flex flex-row w-70">{taskbarState}</div>
                     </div>
                   }
                 />
               </div>
-              {pageContent}
             </div>
-            <div className="h-full w-200 bg-no-repeat bg-left-bottom bg-[url('/images/icons/background/Background_Right.svg')] overflow-hidden" />
-          </div>
-        </div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div className="bg-[#ffffff] flex flex-col h-screen w-screen justify-center items-center gap-0 px-4 overflow-hidden">
-          <div className="mainWrap overflow-x-hidden">
-            <div className="bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
-            <div
-              className={`pt-0 pb-8 flex items-center max-w-screen flex-col overflow-x-hidden`}
-            >
-              <div className="w-full pl-5 pr-5">
-                <div className="rounded-md w-full mt-5 mb-5 h-50 bg-[#879c7d] p-1">
-                  <Stylebox
-                    content={
-                      <div className="flex flex-col pl-30 pr-30 w-full items-center justify-center">
-                        <div className="w-full flex flex-row justify-between">
-                          <img
-                            className="border border-[#eda86e] rounded-md w-20 h-20 bg-[#72867d] overflow-hidden"
-                            src={"/images/headshot.JPG"}
-                          />
-                          <div className="flex flex-col justify-center items-center ">
-                            <h2 className="!mt-1 border-b-2 border-[#eda86e]">
-                              Joseph Steeb
-                            </h2>
-                            <h3 className="pt-1">Software Developer</h3>
-                          </div>
-                        </div>
-                        <div className="flex flex-row w-70">{taskbarState}</div>
-                      </div>
-                    }
-                  />
-                </div>
-              </div>
+            <div className="pt-10 z-0 -translate-y-5 pb-8 flex items-center max-w-screen flex-col overflow-x-hidden ">
               {pageOrder.map((key) => (
                 <div className="w-full pb-5" key={key}>
-                  {" "}
-                  {pages[key].Page}{" "}
+                  {pages[key].Page}
                 </div>
               ))}
             </div>
-            <div className="h-full w-200 bg-no-repeat bg-left-bottom bg-[url('/images/icons/background/Background_Right.svg')] overflow-hidden" />
           </div>
+          <div className="h-full w-200 bg-no-repeat bg-left-bottom bg-[url('/images/icons/background/Background_Right.svg')] overflow-hidden" />
         </div>
-      </>
+      </div>
     );
   }
 }

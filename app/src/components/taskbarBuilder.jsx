@@ -1,21 +1,13 @@
-import * as buttons from "./buttonBuilder";
+import { Taskbar } from "./buttonBuilder";
 
-export const taskbar = (pages, selected, setter, style) => {
-  return Object.keys(pages).map((e) => {
-    if (e == selected)
-      return buttons.taskbar(
-        e,
-        "button-clicked",
-        () => setter(taskbar(pages, e, setter, style), pages[e].Page),
-        pages[e].Icon
-      );
-    else
-      return buttons.taskbar(
-        e,
-        "button",
-        () => setter(taskbar(pages, e, setter, style), pages[e].Page),
-        pages[e].Icon
-      );
-  });
-  //.concat(<div className="button padding"></div>);
+export const renderTaskbar = (pages, selected, setter, style) => {
+  return Object.keys(pages).map((key) => (
+    <Taskbar
+      key={key}
+      text={key}
+      style={key === selected ? "button-clicked" : "button"}
+      onClick={() => setter(renderTaskbar(pages, key, setter, style), key)}
+      icon={pages[key].Icon}
+    />
+  ));
 };

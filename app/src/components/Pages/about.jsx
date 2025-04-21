@@ -35,7 +35,7 @@ export const About = () => {
 
   return (
     <PageGeneric
-      title={<Stylebox content={<div className="title-wrapper">About</div>} />}
+      title={<Stylebox content={<div className="titlebar">About</div>} />}
       content={
         <div className="p-5 text-left overflow-y-scroll">
           <div className="flex justify-center gap-6 pt-2">

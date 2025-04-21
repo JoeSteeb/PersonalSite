@@ -56,7 +56,7 @@
 }
 
 .titlebar {
-  @apply flex flex-row text-center align-middle justify-center min-h-20 w-full;
+  @apply flex flex-row text-center align-middle justify-center min-h-20 max-h-20 w-full;
 }
 
 .title-wrapper {
