@@ -32,6 +32,10 @@
   /* background-image: url('/images/icons/background/Background_Right.svg'); */
 }
 
+.mainWrapMobile {
+  @apply flex;
+}
+
 .corner-tl,
 .corner-tr,
 .corner-bl,
@@ -100,13 +104,8 @@
 }
 
 .taskbar {
-  @apply rounded-md w-80 bg-[#879c7d] p-1;
+  @apply rounded-md w-80 bg-[#879c7d];
 }
-
-.taskbar-content {
-  @apply pt-10 align-middle;
-}
-
 .background1 {
   @apply bg-repeat bg-[top_left] bg-auto h-full w-full;
 }

@@ -8,7 +8,7 @@
   min-height: 5rem;
 }
 .page-wrapper {
-  @apply flex flex-col h-full w-full pl-[0.5cm];
+  @apply flex flex-col h-full w-full pl-5 pr-5;
 }
 
 .page-content {
@@ -56,7 +56,7 @@
 }
 
 .titlebar {
-  @apply flex flex-row text-center align-middle justify-center min-h-20;
+  @apply flex flex-row text-center align-middle justify-center min-h-20 w-full;
 }
 
 .title-wrapper {
