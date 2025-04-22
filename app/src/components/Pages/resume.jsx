@@ -6,7 +6,7 @@ import { PDFViewer } from "../pdfView";
 export const Resume = () => {
   return (
     <PageGeneric
-      title={<Stylebox content={<div className="title-wrapper">Resume</div>} />}
+      title={<Stylebox content={<div className="titlebar">Resume</div>} />}
       content={<PDFViewer path={"Resume.pdf"} />}
     />
   );

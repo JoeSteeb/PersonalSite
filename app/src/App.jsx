@@ -19,11 +19,12 @@ function App() {
   const [taskbarState, setTaskbarState] = useState(null);
   const [pageContent, setpageContent] = useState(null);
   const refs = Object.fromEntries(pageOrder.map((str) => [str, useRef(null)]));
+  const { sharedLayout, setSharedLayout } = useLayout();
 
   const pages = {
     About: {
       Page: (
-        <div className="flex" ref={refs.About}>
+        <div className="w-full" ref={refs.About}>
           <About />
         </div>
       ),
@@ -31,7 +32,7 @@ function App() {
     },
     Projects: {
       Page: (
-        <div ref={refs.Projects}>
+        <div className="w-full" ref={refs.Projects}>
           <Projects />
         </div>
       ),
@@ -39,7 +40,7 @@ function App() {
     },
     Resume: {
       Page: (
-        <div ref={refs.Resume}>
+        <div className="w-full" ref={refs.Resume}>
           <Resume />
         </div>
       ),
@@ -47,9 +48,8 @@ function App() {
     },
   };
 
-  const { sharedLayout, setSharedLayout } = useLayout("desktop");
-
   const setTaskbar = (taskbar, pageKey) => {
+    console.log("layout: ", sharedLayout);
     setTaskbarState(taskbar);
     if (sharedLayout === "desktop") {
       setpageContent(pages[pageKey].Page);
@@ -59,6 +59,9 @@ function App() {
         block: "start",
         inline: "nearest",
       });
+      setTimeout(() => {
+        window.scrollBy(0, -500);
+      }, 300);
     }
   };
 
@@ -68,12 +71,14 @@ function App() {
   }
 
   useEffect(() => {
+    console.log("Layout From useEffect: ", sharedLayout);
     setTaskbar(renderTaskbar(pages, "About", setTaskbar), "About");
+    setpageContent(pages.About.Page);
     checkLayout();
     const handleResize = () => checkLayout();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [sharedLayout]);
 
   if (sharedLayout === "desktop") {
     return (
@@ -133,7 +138,7 @@ function App() {
                 />
               </div>
             </div>
-            <div className="pt-10 z-0 -translate-y-5 pb-8 flex items-center max-w-screen flex-col overflow-x-hidden ">
+            <div className="z-0 -translate-y-5 pb-8 flex items-center max-w-screen flex-col overflow-x-hidden ">
               {pageOrder.map((key) => (
                 <div className="w-full pb-5" key={key}>
                   {pages[key].Page}
