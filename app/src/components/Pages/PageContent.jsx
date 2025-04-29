@@ -177,3 +177,123 @@ export const GraphingApp = () => {
     </div>
   );
 };
+
+export const GraphTheoryApp = () => {
+  return (
+    <div className="p-5 text-left">
+      <div className="flex justify-center pt-2">
+        <a
+          href="https://github.com/JoeSteeb/Graph-Theory"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[#4a4a4a] border-b-2 border-[#fbd499] hover:text-[#000] hover:border-[#cbc385] transition-colors duration-100"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+            className="w-4 h-4"
+          />
+          View project on GitHub
+        </a>
+      </div>
+
+      <h2 className="pt-5">Project Overview</h2>
+      <p>
+        The Graph Theorist’s Sketchpad is an interactive Python application
+        designed for prototyping graph structures. Built with Pygame, it
+        provides an intuitive environment where users can place vertices, create
+        edges, edit labels, and explore graph properties dynamically. The tool
+        emphasizes usability and real-time feedback for graph construction and
+        editing workflows.
+      </p>
+
+      <div className="pt-5 flex">
+        <img
+          className="picture-frame-no-center"
+          src={"/images/GraphTheoryApp/HeadLine.png"}
+          alt={"Main overview of Graph Theorist's Sketchpad"}
+        />
+      </div>
+
+      <h2 className="pt-7">Interface and User Interaction</h2>
+      <p className="pt-2">
+        The interface features a collapsible bottom-left menu composed of
+        dynamically arranged buttons. Users can select actions like "Place
+        Vertex," "Add Edge," "Edit Label," "Delete Vertex," toggle "Directed"
+        edges, or "Show Degree." Each button modifies the application state,
+        allowing context-aware interaction when clicking inside the workbench
+        area. Nodes can be dragged, labeled, and connected with single clicks,
+        supporting both undirected and directed graph models.
+      </p>
+
+      <h2 className="pt-7">Graph Types: Directed and Non-Directed Edges</h2>
+      <div className="pt-5 flex">
+        <img
+          className="picture-frame-no-center"
+          src={"/images/GraphTheoryApp/NonDirected.png"}
+          alt={"Example of non-directed graph edges"}
+        />
+      </div>
+
+      <div className="pt-5 flex">
+        <img
+          className="picture-frame-no-center"
+          src={"/images/GraphTheoryApp/Directed.png"}
+          alt={"Example of directed graph edges"}
+        />
+      </div>
+
+      <h2 className="pt-7">Architecture and Core Logic</h2>
+      <p className="pt-2">
+        The application is built following a top-down design philosophy. Each
+        drawable object (e.g., menus, buttons, nodes) implements a `draw()`
+        method that propagates rendering calls hierarchically. The `Menu` class
+        manages UI state and click detection, while the `Work_Bench` class
+        handles core control logic, node management, and input interpretation.
+      </p>
+
+      <p className="pt-2">
+        Node placement, deletion, and movement are processed using a combination
+        of the `Mouse` and `Work_Bench` classes, with click detection handled
+        independently of UI elements. Keyboard input for label editing is
+        managed through the `Keyboard` class, allowing direct string mutation
+        and backspace functionality during text editing.
+      </p>
+
+      <h2 className="pt-7">Graph Drawing and Visualization</h2>
+      <p className="pt-2">
+        Each node is drawn as an ellipse and edges are rendered as lines or
+        directed arrows depending on mode selection. Edge rendering
+        intelligently handles special cases like self-loops (edges to self) and
+        double connections. The graph automatically displays vertex and edge
+        counts in the top-left corner, updating in real time as nodes and edges
+        are modified.
+      </p>
+
+      <h2 className="pt-7">Technical Highlights</h2>
+      <ul className="list-disc list-inside pt-2 space-y-1">
+        <li>
+          Dynamic button creation and layout adjustment based on window size
+        </li>
+        <li>Real-time node movement and interactive edge placement</li>
+        <li>
+          Support for directed and undirected graphs with visual indicators
+        </li>
+        <li>
+          Manual string editing for vertex labels with keyboard event handling
+        </li>
+        <li>Degree calculation and label swapping at runtime</li>
+        <li>Efficient click detection with radius-based selection logic</li>
+      </ul>
+
+      <h2 className="pt-7">Use Case and Relevance</h2>
+      <p className="pt-2">
+        This project demonstrates capabilities in GUI programming, interactive
+        graphics, input handling, and modular Python architecture. It is
+        particularly relevant for roles involving rapid prototyping, UI/UX
+        design for technical applications, game development, and educational
+        software engineering.
+      </p>
+    </div>
+  );
+};

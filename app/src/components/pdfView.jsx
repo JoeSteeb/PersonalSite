@@ -2,7 +2,7 @@ import { useLayout } from "@/LayoutContext.jsx";
 
 export const PDFViewer = ({ path }) => {
   const { sharedLayout } = useLayout();
-  const height = sharedLayout === "mobile" ? "100%" : "100%";
+  const height = sharedLayout === "mobile" ? "100vh" : "100%";
   return (
     <div style={{ height: height, width: "100%" }}>
       <iframe

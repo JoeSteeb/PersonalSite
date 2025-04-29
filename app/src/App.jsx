@@ -138,9 +138,9 @@ function App() {
                 />
               </div>
             </div>
-            <div className="z-0 -translate-y-5 pb-8 flex items-center max-w-screen flex-col overflow-x-hidden ">
+            <div className="z-0 -translate-y-5 flex items-center max-w-screen flex-col overflow-x-hidden ">
               {pageOrder.map((key) => (
-                <div className="w-full pb-5" key={key}>
+                <div className="w-full" key={key}>
                   {pages[key].Page}
                 </div>
               ))}

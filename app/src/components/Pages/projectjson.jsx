@@ -13,6 +13,12 @@ const projects = [
     page: Projects.GraphingApp(),
     image: "/images/GraphingApp/Graph.png",
   },
+  {
+    id: 3,
+    title: "Graph Theory Application",
+    page: Projects.GraphTheoryApp(),
+    image: "/images/GraphTheoryApp/Thumbnail.png",
+  },
 ];
 
 export default projects;
