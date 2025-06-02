@@ -9,10 +9,11 @@ import { useLayout } from "@/LayoutContext.jsx";
 
 export const Projects = () => {
   const { sharedLayout } = useLayout();
+  const [flipper, setFlipper] = useState(false);
+  const [SelectedPage, setSelectedPage] = useState(() => null);
+  const [title, setTitle] = useState(null);
 
-  if (!sharedLayout) {
-    return null;
-  }
+  if (!sharedLayout) return null;
 
   const desktopTitle = (
     <div className="flex flex-row items-center">
@@ -30,12 +31,7 @@ export const Projects = () => {
     </div>
   );
 
-  const [pageTitle, setPageTitle] = useState(
-    sharedLayout === "mobile" ? mobileTitle : desktopTitle
-  );
-  const [flipper, setFlipper] = useState(false);
-  const [content, setContent] = useState(null);
-  const [title, setTitle] = useState(pageTitle);
+  const sharedTitle = sharedLayout === "mobile" ? mobileTitle : desktopTitle;
 
   const projectElements = projects.map((project) => (
     <div
@@ -43,8 +39,8 @@ export const Projects = () => {
       className="project"
       onClick={() => {
         setFlipper(true);
+        setSelectedPage(() => project.page);
         setTitle(project.title);
-        setContent(project.page);
       }}
     >
       <img className="picture-frame" src={project.image} alt={project.title} />
@@ -52,10 +48,11 @@ export const Projects = () => {
     </div>
   ));
 
-  useEffect(() => {
-    setContent(projectElements);
-    setPageTitle(sharedLayout === "mobile" ? mobileTitle : desktopTitle);
-  }, [sharedLayout]);
+  const goBack = () => {
+    setFlipper(false);
+    setSelectedPage(() => null);
+    setTitle(null);
+  };
 
   return (
     <PageGeneric
@@ -64,24 +61,21 @@ export const Projects = () => {
           content={
             <div className="titlebar">
               {flipper && (
-                <button
-                  className="back-button"
-                  onClick={() => {
-                    setFlipper(false);
-                    setContent(projectElements);
-                    setTitle(pageTitle);
-                  }}
-                >
+                <button className="back-button" onClick={goBack}>
                   <FontAwesomeIcon icon={faPersonThroughWindow} />
                   {"  Back"}
                 </button>
               )}
-              <div className="title-wrapper">{title}</div>
+              <div className="title-wrapper">{title || sharedTitle}</div>
             </div>
           }
         />
       }
-      content={<div className="project-view">{content}</div>}
+      content={
+        <div className="project-view">
+          {flipper && SelectedPage ? <SelectedPage /> : projectElements}
+        </div>
+      }
     />
   );
 };

@@ -9,7 +9,11 @@ import { useLayout } from "./LayoutContext.jsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-regular-svg-icons";
-import { faDiagramProject, faFile } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBox,
+  faDiagramProject,
+  faFile,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
 import "./components/Pages/page.css";
@@ -18,7 +22,10 @@ function App() {
   const [pageOrder, setPageOrder] = useState(["About", "Projects", "Resume"]);
   const [taskbarState, setTaskbarState] = useState(null);
   const [pageContent, setpageContent] = useState(null);
+  const [taskbarCollapsed, setTaskbarCollapsed] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const refs = Object.fromEntries(pageOrder.map((str) => [str, useRef(null)]));
+  const scrollRef = useRef(null);
   const { sharedLayout, setSharedLayout } = useLayout();
 
   const pages = {
@@ -70,6 +77,7 @@ function App() {
     setSharedLayout(width > height ? "desktop" : "mobile");
   }
 
+  // Window resize event listener for mobile/desktop layout.
   useEffect(() => {
     console.log("Layout From useEffect: ", sharedLayout);
     setTaskbar(renderTaskbar(pages, "About", setTaskbar), "About");
@@ -79,6 +87,77 @@ function App() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [sharedLayout]);
+
+  // Scroll event listener to hide taskbar on mobile.
+  useEffect(() => {
+    const scrollBox = scrollRef.current;
+    if (!scrollBox) return;
+    scrollBox.addEventListener("scroll", () => {
+      if (scrollBox.scrollTop > scrollPosition) {
+        setTaskbarCollapsed(true);
+      }
+      setScrollPosition(scrollBox.scrollTop);
+    });
+    return () => {
+      if (scrollBox) {
+        scrollBox.removeEventListener("scroll", () => {
+          console.log("scrolling...");
+        });
+      }
+    };
+  }, []);
+
+  const mobileTaskbar = (
+    <div className="rounded-md w-full mt-5 mb-0 h-40 bg-[#879c7d] p-1">
+      <Stylebox
+        content={
+          <div className="flex flex-col h-full w-full items-center justify-center">
+            <div className="w-full flex flex-row justify-center items-center gap-3 m-2">
+              <img
+                className="border border-[#eda86e] rounded-md min-w-20 h-20 bg-[#72867d] overflow-hidden"
+                src="/images/headshot.JPG"
+              />
+              <div className="flex flex-col justify-center items-center">
+                <h2 className="!mt-1 border-b-2 border-[#eda86e]">
+                  Joseph Steeb
+                </h2>
+                <h3 className="pt-1">Software Developer</h3>
+              </div>
+            </div>
+            <div className="flex flex-row w-70">{taskbarState}</div>
+          </div>
+        }
+      />
+    </div>
+  );
+
+  const mobileTaskbarCollapsed = (
+    <div className="rounded-md w-full mt-5 mb-0 h-20 bg-[#879c7d] p-1">
+      <Stylebox
+        content={
+          <div className="flex flex-col h-full w-full items-center justify-center">
+            <div className="w-full flex flex-row justify-center items-center gap-3 m-2">
+              <div className="flex flex-col justify-center items-center">
+                <h2 className="!mt-1 border-b-2 border-[#eda86e]">
+                  Joseph Steeb
+                </h2>
+                <h3 className="pt-1">Software Developer</h3>
+              </div>
+              <button
+                className="button-mobile !m-0 !w-auto"
+                onClick={() => {
+                  setTaskbarCollapsed(!taskbarCollapsed);
+                  console.log("Taskbar collapsed: ", taskbarCollapsed);
+                }}
+              >
+                Expand
+              </button>
+            </div>
+          </div>
+        }
+      />
+    </div>
+  );
 
   if (sharedLayout === "desktop") {
     return (
@@ -116,29 +195,12 @@ function App() {
           <div className="bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
           <div className="flex flex-col">
             <div className="z-100 w-full pl-5 pr-5 drop-shadow-md">
-              <div className="rounded-md w-full mt-5 mb-0 h-40 bg-[#879c7d] p-1">
-                <Stylebox
-                  content={
-                    <div className="flex flex-col h-full w-full items-center justify-center">
-                      <div className="w-full flex flex-row justify-center items-center gap-3 m-2">
-                        <img
-                          className="border border-[#eda86e] rounded-md min-w-20 h-20 bg-[#72867d] overflow-hidden"
-                          src="/images/headshot.JPG"
-                        />
-                        <div className="flex flex-col justify-center items-center">
-                          <h2 className="!mt-1 border-b-2 border-[#eda86e]">
-                            Joseph Steeb
-                          </h2>
-                          <h3 className="pt-1">Software Developer</h3>
-                        </div>
-                      </div>
-                      <div className="flex flex-row w-70">{taskbarState}</div>
-                    </div>
-                  }
-                />
-              </div>
+              {taskbarCollapsed ? mobileTaskbarCollapsed : mobileTaskbar}
             </div>
-            <div className="z-0 -translate-y-5 flex items-center max-w-screen flex-col overflow-x-hidden ">
+            <div
+              className="z-0 -translate-y-5 flex items-center max-w-screen flex-col overflow-x-hidden "
+              ref={scrollRef}
+            >
               {pageOrder.map((key) => (
                 <div className="w-full" key={key}>
                   {pages[key].Page}
