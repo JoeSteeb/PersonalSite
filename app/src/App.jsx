@@ -23,9 +23,9 @@ function App() {
   const [taskbarState, setTaskbarState] = useState(null);
   const [pageContent, setpageContent] = useState(null);
   const [taskbarCollapsed, setTaskbarCollapsed] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const refs = Object.fromEntries(pageOrder.map((str) => [str, useRef(null)]));
   const scrollRef = useRef(null);
+  const scrollPos = useRef(0);
   const { sharedLayout, setSharedLayout } = useLayout();
 
   const pages = {
@@ -93,10 +93,10 @@ function App() {
     const scrollBox = scrollRef.current;
     if (!scrollBox) return;
     scrollBox.addEventListener("scroll", () => {
-      if (scrollBox.scrollTop > scrollPosition) {
+      if (scrollBox.scrollTop > scrollPos.current) {
         setTaskbarCollapsed(true);
       }
-      setScrollPosition(scrollBox.scrollTop);
+      scrollPos.current = scrollBox.scrollTop;
     });
     return () => {
       if (scrollBox) {
