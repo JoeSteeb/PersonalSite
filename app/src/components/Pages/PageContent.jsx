@@ -1,4 +1,6 @@
 import "./page.css";
+import { Carousel } from "../carousel";
+
 export const VisualizationTool = () => {
   return (
     <div className="p-5 text-left">
@@ -285,6 +287,115 @@ export const GraphTheoryApp = () => {
         <li>Degree calculation and label swapping at runtime</li>
         <li>Efficient click detection with radius-based selection logic</li>
       </ul>
+
+      <h2 className="pt-7">Use Case and Relevance</h2>
+      <p className="pt-2">
+        This project demonstrates capabilities in GUI programming, interactive
+        graphics, input handling, and modular Python architecture. It is
+        particularly relevant for roles involving rapid prototyping, UI/UX
+        design for technical applications, game development, and educational
+        software engineering.
+      </p>
+    </div>
+  );
+};
+
+export const DBApp = () => {
+  return (
+    <div className="p-5 text-left">
+      <div className="flex justify-center pt-2">
+        <a
+          href="https://github.com/JoeSteeb/Database-demo"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[#4a4a4a] border-b-2 border-[#fbd499] hover:text-[#000] hover:border-[#cbc385] transition-colors duration-100"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+            className="w-4 h-4"
+          />
+          View project on GitHub
+        </a>
+      </div>
+
+      <h2 className="pt-5">Project Overview</h2>
+      <p>
+        This application utilizes the yelp open-dataset to demonstrate various
+        software engineering principles, including database management, web
+        design / development, restful APIs and API compositioning.
+      </p>
+
+      <div className="pt-5 flex">
+        <img
+          className="picture-frame-no-center"
+          src={"/images/DBApp/Map.png"}
+          alt={"Map utility image showing business locations"}
+        />
+      </div>
+
+      <h2 className="pt-7">Interface and User Interaction</h2>
+      <p className="pt-2">
+        The UI framework chosen for this application is a React single-page
+        application built with TypeScript. Users of the application will first
+        be greeted by a list of businesses, which can be filtered by name, city,
+        and state, etc. and can be ordered by rating, review count, distance,
+        and other metrics.
+      </p>
+      <Carousel>
+        <div className="pt-5 flex">
+          <img
+            className="picture-frame"
+            src={"/images/DBApp/FilterBy.png"}
+            alt={"Example of Filter utility"}
+          />
+        </div>
+        <div className="pt-5 flex">
+          <img
+            className="picture-frame"
+            src={"/images/DBApp/FilterBy.png"}
+            alt={"Example of Filter utility"}
+          />
+        </div>
+        <div className="pt-5 flex">
+          <img
+            className="picture-frame"
+            src={"/images/DBApp/FilterBy.png"}
+            alt={"Example of Filter utility"}
+          />
+        </div>
+        <div className="pt-5 flex">
+          <img
+            className="picture-frame"
+            src={"/images/DBApp/FilterBy.png"}
+            alt={"Example of Filter utility"}
+          />
+        </div>
+        <div className="pt-5 flex">
+          <img
+            className="picture-frame"
+            src={"/images/DBApp/OrderBy.png"}
+            alt={"Example of sort utility"}
+          />
+        </div>
+      </Carousel>
+
+      <p className="pt-2">
+        One of the key features of React is the ability to seamlessly implement
+        dynamic html elements. This is demonstrated in the above screenshots,
+        showcasing dropdown menus.
+      </p>
+
+      <h2 className="pt-7">Architecture and Core Logic</h2>
+      <p className="pt-2"></p>
+
+      <p className="pt-2"></p>
+
+      <h2 className="pt-7">Graph Drawing and Visualization</h2>
+      <p className="pt-2"></p>
+
+      <h2 className="pt-7">Technical Highlights</h2>
+      <ul className="list-disc list-inside pt-2 space-y-1"></ul>
 
       <h2 className="pt-7">Use Case and Relevance</h2>
       <p className="pt-2">

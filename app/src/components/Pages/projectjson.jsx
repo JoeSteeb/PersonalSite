@@ -2,6 +2,12 @@ import * as Projects from "./PageContent";
 
 const projects = [
   {
+    id: 0,
+    title: "Database App",
+    page: Projects.DBApp,
+    image: "/images/DBApp/Map.png",
+  },
+  {
     id: 1,
     title: "Visualization Tool",
     page: Projects.VisualizationTool,
