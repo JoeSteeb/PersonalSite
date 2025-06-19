@@ -369,8 +369,11 @@ export const DBApp = () => {
           alt={"Example of sort utility"}
         /> */}
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-          <div key={n} className="p-4 bg-gray-200 rounded shadow-lg">
-            <h1 className="text-xl font-bold h-150 w-full">{n}</h1>
+          <div
+            key={n}
+            className="p-4 bg-gray-200 rounded shadow-lg h-full p w-full"
+          >
+            <h1 className="text-xl font-bold">{n}</h1>
           </div>
         ))}
       </Carousel>

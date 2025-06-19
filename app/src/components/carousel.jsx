@@ -19,7 +19,7 @@ export const Carousel = ({ children }) => {
                   transform: `translateX(-${(i + 1) * 5}%)`,
                   zIndex: childCount - i,
                 }}
-                className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+                className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
                 key={i}
               >
                 {element}
@@ -42,7 +42,7 @@ export const Carousel = ({ children }) => {
                   transform: `translateX(${(i + 1) * 5}%)`,
                   zIndex: childCount - i,
                 }}
-                className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+                className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
                 key={i + index}
               >
                 {element}
@@ -58,7 +58,7 @@ export const Carousel = ({ children }) => {
         {left}
         <div
           key={index}
-          className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+          className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
           style={{ zIndex: childCount + 1 }}
         >
           {React.Children.toArray(children)[index]}
