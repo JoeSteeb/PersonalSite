@@ -343,41 +343,36 @@ export const DBApp = () => {
         and other metrics.
       </p>
       <Carousel>
-        <div className="pt-5 flex">
-          <img
-            className="picture-frame"
-            src={"/images/DBApp/FilterBy.png"}
-            alt={"Example of Filter utility"}
-          />
-        </div>
-        <div className="pt-5 flex">
-          <img
-            className="picture-frame"
-            src={"/images/DBApp/FilterBy.png"}
-            alt={"Example of Filter utility"}
-          />
-        </div>
-        <div className="pt-5 flex">
-          <img
-            className="picture-frame"
-            src={"/images/DBApp/FilterBy.png"}
-            alt={"Example of Filter utility"}
-          />
-        </div>
-        <div className="pt-5 flex">
-          <img
-            className="picture-frame"
-            src={"/images/DBApp/FilterBy.png"}
-            alt={"Example of Filter utility"}
-          />
-        </div>
-        <div className="pt-5 flex">
-          <img
-            className="picture-frame"
-            src={"/images/DBApp/OrderBy.png"}
-            alt={"Example of sort utility"}
-          />
-        </div>
+        {/* <img
+          className="picture-frame w-full h-full"
+          src={"/images/DBApp/FilterBy.png"}
+          alt={"Example of Filter utility"}
+        />
+        <img
+          className="picture-frame w-full h-full"
+          src={"/images/DBApp/FilterBy.png"}
+          alt={"Example of Filter utility"}
+        />
+        <img
+          className="picture-frame w-full h-full"
+          src={"/images/DBApp/FilterBy.png"}
+          alt={"Example of Filter utility"}
+        />
+        <img
+          className="picture-frame w-full h-full"
+          src={"/images/DBApp/FilterBy.png"}
+          alt={"Example of Filter utility"}
+        />
+        <img
+          className="picture-frame w-full h-full"
+          src={"/images/DBApp/FilterBy.png"}
+          alt={"Example of sort utility"}
+        /> */}
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+          <div key={n} className="p-4 bg-gray-200 rounded shadow-lg">
+            <h1 className="text-xl font-bold h-150 w-full">{n}</h1>
+          </div>
+        ))}
       </Carousel>
 
       <p className="pt-2">

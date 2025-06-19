@@ -6,49 +6,76 @@ export const Carousel = ({ children }) => {
 
   const prev = () => setIndex((index - 1 + count) % count);
   const next = () => setIndex((index + 1) % count);
+  const childCount = React.Children.count(children);
 
-  return (
-    <div className="flex relative w-150 h-170 align-baseline">
-      <div className="w-full h-full overflow-hidden">
-        {React.Children.toArray(children)
+  const left =
+    index > 0
+      ? React.Children.toArray(children)
           .slice(0, index)
           .map((element, i) => {
             return (
               <div
-                style={{ transform: `translateX(-${index * 2}%)`, zIndex: -i }}
-                className="absolute top-0 left-0"
-                key={index}
+                style={{
+                  transform: `translateX(-${(i + 1) * 5}%)`,
+                  zIndex: childCount - i,
+                }}
+                className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+                key={i}
               >
                 {element}
               </div>
             );
-          })}
-        <div key={index} className="absolute top-0 left-0">
-          {React.Children.toArray(children)[index]}
-        </div>
-        {React.Children.toArray(children)
-          .slice(index, React.Children.count(children))
+          })
+      : null;
+  console.log(
+    "left: ",
+    left?.map((el) => el.key)
+  );
+  const right =
+    index < childCount
+      ? React.Children.toArray(children)
+          .slice(index + 1)
           .map((element, i) => {
             return (
               <div
-                style={{ transform: `translateX(-${index * 2}%)`, zIndex: -i }}
-                className="absolute top-0 left-0"
-                key={index}
+                style={{
+                  transform: `translateX(${(i + 1) * 5}%)`,
+                  zIndex: childCount - i,
+                }}
+                className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+                key={i + index}
               >
                 {element}
               </div>
             );
-          })}
+          })
+      : null;
+  console.log("right: " + right?.map((el) => el.key));
+
+  return (
+    <div className="flex relative w-150 h-170 align-baseline bg-white">
+      <div className="w-full h-full overflow-hidden">
+        {left}
+        <div
+          key={index}
+          className="absolute top-0 left-1/10  w-4/5 h-7/8 "
+          style={{ zIndex: childCount + 1 }}
+        >
+          {React.Children.toArray(children)[index]}
+        </div>
+        {right}
       </div>
 
       <button
         onClick={prev}
+        style={{ zIndex: childCount + 1 }}
         className="button w-2! absolute left-2 top-1/2 transform -translate-y-1/2 px-2 py-1 rounded shadow"
       >
         ‹
       </button>
       <button
         onClick={next}
+        style={{ zIndex: childCount + 2 }}
         className="button w-2! absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 px-2 py-1 rounded shadow"
       >
         ›

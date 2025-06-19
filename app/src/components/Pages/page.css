@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 .page-title {
-  @apply flex-row m-0 p-1 rounded-md bg-[#879c7d] align-middle justify-center;
+  @apply flex-row m-0 p-1 rounded-md bg-[#879c7d] align-middle justify-center shadow-md;
   font-family: "Data70", sans-serif;
   font-size: 2rem;
   min-height: 5rem;
@@ -12,7 +12,7 @@
 }
 
 .page-content {
-  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#f1ddc3] text-[#4a4a4a] rounded-lg flex flex-col text-center h-full w-full overflow-hidden relative;
+  @apply mt-[0.5cm] border-2 border-[#fbd499] bg-[#f1ddc3] text-[#4a4a4a] rounded-lg flex flex-col text-center h-full w-full overflow-hidden relative shadow-md;
   flex-grow: 1; /* This allows the div to take up remaining available height */
 }
 

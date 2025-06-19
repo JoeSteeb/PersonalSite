@@ -165,7 +165,7 @@ function App() {
         <div className="mainWrap">
           <div className=" bg-no-repeat h-full w-200 bg-right-bottom overflow-hidden bg-[url('/images/icons/background/Background_Left.svg')]" />
           <div className="mainContent">
-            <div className="taskbar">
+            <div className="taskbar shadow-md">
               <Stylebox
                 content={
                   <div className="pt-10 align-middle">
