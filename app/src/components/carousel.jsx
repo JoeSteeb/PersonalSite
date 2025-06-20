@@ -1,36 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export const Carousel = ({ children }) => {
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   const count = React.Children.count(children);
 
-  const prev = () => setIndex((index - 1 + count) % count);
-  const next = () => setIndex((index + 1) % count);
+  const prev = () => {
+    if (index > 0) {
+      setPrevIndex(index);
+      setIndex(index - 1);
+    }
+  };
+
+  const next = () => {
+    if (index < count - 1) {
+      setPrevIndex(index);
+      setIndex(index + 1);
+    }
+  };
+
   const childCount = React.Children.count(children);
+  const leftRefs = useRef([]);
+  const rightRefs = useRef([]);
 
   const left =
     index > 0
       ? React.Children.toArray(children)
           .slice(0, index)
+          .reverse()
           .map((element, i) => {
             return (
               <div
+                ref={(el) => {
+                  if (el) leftRefs.current[i] = el;
+                }}
                 style={{
-                  transform: `translateX(-${(i + 1) * 5}%)`,
+                  transform: `translateX(-${i * 5}%)`,
                   zIndex: childCount - i,
                 }}
-                className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
-                key={i}
+                className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
+                key={`left-${index}-${i}`}
               >
                 {element}
               </div>
             );
           })
       : null;
-  console.log(
-    "left: ",
-    left?.map((el) => el.key)
-  );
+
   const right =
     index < childCount
       ? React.Children.toArray(children)
@@ -38,19 +54,58 @@ export const Carousel = ({ children }) => {
           .map((element, i) => {
             return (
               <div
+                ref={(el) => {
+                  if (el) rightRefs.current[i] = el;
+                }}
                 style={{
                   transform: `translateX(${(i + 1) * 5}%)`,
                   zIndex: childCount - i,
                 }}
-                className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
-                key={i + index}
+                className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
+                key={`right-${index}-${i}`}
               >
                 {element}
               </div>
             );
           })
       : null;
-  console.log("right: " + right?.map((el) => el.key));
+
+  // Handle the transition effect for the left and right elements.
+  useEffect(() => {
+    const leftArr = leftRefs.current;
+    const rightEl = rightRefs.current;
+
+    if (leftArr) {
+      leftArr.forEach((el, i) => {
+        if (el) {
+          el.style.transition = "transform 0.5s ease-out";
+          void el.offsetWidth; // Trigger reflow to apply the transition
+          el.style.transform = `translateX(-${(i + 1) * 5}%)`;
+        }
+      });
+    }
+
+    if (rightEl) {
+      rightEl.forEach((el, i) => {
+        if (el) {
+          el.style.transition = "transform 0.5s ease-out";
+          void el.offsetWidth; // Trigger reflow to apply the transition
+          el.style.transform = `translateX(${(i + 1) * 5}%)`;
+        }
+      });
+    }
+
+    // return () => {
+    //   if (leftEl) {
+    //     leftEl.style.transition = "";
+    //     leftEl.style.transform = "";
+    //   }
+    //   if (rightEl) {
+    //     rightEl.style.transition = "";
+    //     rightEl.style.transform = "";
+    //   }
+    // };
+  }, [index, prevIndex]);
 
   return (
     <div className="flex relative w-150 h-170 align-baseline bg-white">
