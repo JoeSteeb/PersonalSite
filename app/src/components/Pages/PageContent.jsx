@@ -352,22 +352,8 @@ export const DBApp = () => {
           className="picture-frame w-full h-full"
           src={"/images/DBApp/FilterBy.png"}
           alt={"Example of Filter utility"}
-        />
-        <img
-          className="picture-frame w-full h-full"
-          src={"/images/DBApp/FilterBy.png"}
-          alt={"Example of Filter utility"}
-        />
-        <img
-          className="picture-frame w-full h-full"
-          src={"/images/DBApp/FilterBy.png"}
-          alt={"Example of Filter utility"}
-        />
-        <img
-          className="picture-frame w-full h-full"
-          src={"/images/DBApp/FilterBy.png"}
-          alt={"Example of sort utility"}
         /> */}
+
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
           <div
             key={n}

@@ -140,13 +140,13 @@ h1 {
 }
 
 .picture-frame {
-  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden mx-auto align-baseline;
+  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden mx-auto align-baseline shadow-md;
 }
 
 .picture-frame-no-center {
-  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden max-w-none align-baseline;
+  @apply border border-[#eda86e] rounded-md w-4/5 bg-[#72867d] overflow-hidden max-w-none align-baseline shadow-md;
 }
 
 .picture-frame img {
-  @apply w-full h-full object-cover block;
+  @apply w-full h-full object-cover block shadow-md;
 }

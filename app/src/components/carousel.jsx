@@ -35,7 +35,7 @@ export const Carousel = ({ children }) => {
                   if (el) leftRefs.current[i] = el;
                 }}
                 style={{
-                  transform: `translateX(-${i * 5}%)`,
+                  // transform: `translateX(-${i * 5}%)`,
                   zIndex: childCount - i,
                 }}
                 className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
@@ -58,7 +58,7 @@ export const Carousel = ({ children }) => {
                   if (el) rightRefs.current[i] = el;
                 }}
                 style={{
-                  transform: `translateX(${(i + 1) * 5}%)`,
+                  // transform: `translateX(${(i + 1) * 5}%)`,
                   zIndex: childCount - i,
                 }}
                 className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
@@ -70,45 +70,59 @@ export const Carousel = ({ children }) => {
           })
       : null;
 
-  // Handle the transition effect for the left and right elements.
+  // Handle the transition effect for the left and right stack.
   useEffect(() => {
     const leftArr = leftRefs.current;
-    const rightEl = rightRefs.current;
+    const rightArr = rightRefs.current;
 
     if (leftArr) {
       leftArr.forEach((el, i) => {
-        if (el) {
+        if (!el) return;
+
+        if (index > prevIndex) {
+          // Moving left → do instant jump 5% past final, then ease back
+          if (leftArr.length > 1) {
+            el.style.transition = "none";
+            el.style.transform = `translateX(-${i * 5}%)`;
+            void el.offsetWidth;
+          }
           el.style.transition = "transform 0.5s ease-out";
-          void el.offsetWidth; // Trigger reflow to apply the transition
+          el.style.transform = `translateX(-${(i + 1) * 5}%)`;
+        } else if (prevIndex && index < prevIndex) {
+          el.style.transition = "none";
+          el.style.transform = `translateX(-${(i + 2) * 5}%)`;
+          void el.offsetWidth;
+          el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(-${(i + 1) * 5}%)`;
         }
       });
     }
 
-    if (rightEl) {
-      rightEl.forEach((el, i) => {
-        if (el) {
+    if (rightArr) {
+      rightArr.forEach((el, i) => {
+        if (!el) return;
+
+        if (index > prevIndex) {
+          // Moving right → do instant jump 5% past final, then ease back
+          el.style.transition = "none";
+          el.style.transform = `translateX(${(i + 2) * 5}%)`;
+          void el.offsetWidth;
           el.style.transition = "transform 0.5s ease-out";
-          void el.offsetWidth; // Trigger reflow to apply the transition
+          el.style.transform = `translateX(${(i + 1) * 5}%)`;
+        } else if (prevIndex && index < prevIndex) {
+          // Moving left → instant jump to i * 5%, then ease to (i + 1) * 5%
+          el.style.transition = "none";
+          el.style.transform = `translateX(${i * 5}%)`;
+          void el.offsetWidth;
+          el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(${(i + 1) * 5}%)`;
         }
       });
     }
-
-    // return () => {
-    //   if (leftEl) {
-    //     leftEl.style.transition = "";
-    //     leftEl.style.transform = "";
-    //   }
-    //   if (rightEl) {
-    //     rightEl.style.transition = "";
-    //     rightEl.style.transform = "";
-    //   }
-    // };
   }, [index, prevIndex]);
 
   return (
-    <div className="flex relative w-150 h-170 align-baseline bg-white">
+    <div className="flex relative w-150 h-170 align-baseline bg-white rounded-md shadow-[inset_0_2px_8px_rgba(0,0,0,0.2)] overflow-hidden">
       <div className="w-full h-full overflow-hidden">
         {left}
         <div
