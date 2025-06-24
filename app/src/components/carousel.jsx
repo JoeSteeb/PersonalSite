@@ -34,10 +34,6 @@ export const Carousel = ({ children }) => {
                 ref={(el) => {
                   if (el) leftRefs.current[i] = el;
                 }}
-                style={{
-                  // transform: `translateX(-${i * 5}%)`,
-                  zIndex: childCount - i,
-                }}
                 className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
                 key={`left-${index}-${i}`}
               >
@@ -56,10 +52,6 @@ export const Carousel = ({ children }) => {
               <div
                 ref={(el) => {
                   if (el) rightRefs.current[i] = el;
-                }}
-                style={{
-                  // transform: `translateX(${(i + 1) * 5}%)`,
-                  zIndex: childCount - i,
                 }}
                 className="absolute top-1/16 left-1/10 w-4/5 h-7/8"
                 key={`right-${index}-${i}`}
@@ -81,19 +73,21 @@ export const Carousel = ({ children }) => {
 
         if (index > prevIndex) {
           // Moving left → do instant jump 5% past final, then ease back
-          if (leftArr.length > 1) {
-            el.style.transition = "none";
-            el.style.transform = `translateX(-${i * 5}%)`;
-            void el.offsetWidth;
-          }
+          el.style.transition = "none";
+          el.style.transform = `translateX(-${i * 5}%)`;
+          void el.offsetWidth;
           el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(-${(i + 1) * 5}%)`;
-        } else if (prevIndex && index < prevIndex) {
+          void el.offsetWidth;
+          el.style.zIndex = count - i;
+        } else {
           el.style.transition = "none";
           el.style.transform = `translateX(-${(i + 2) * 5}%)`;
           void el.offsetWidth;
           el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(-${(i + 1) * 5}%)`;
+          void el.offsetWidth;
+          el.style.zIndex = count - i;
         }
       });
     }
@@ -101,7 +95,6 @@ export const Carousel = ({ children }) => {
     if (rightArr) {
       rightArr.forEach((el, i) => {
         if (!el) return;
-
         if (index > prevIndex) {
           // Moving right → do instant jump 5% past final, then ease back
           el.style.transition = "none";
@@ -109,13 +102,17 @@ export const Carousel = ({ children }) => {
           void el.offsetWidth;
           el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(${(i + 1) * 5}%)`;
-        } else if (prevIndex && index < prevIndex) {
+          void el.offsetWidth;
+          el.style.zIndex = count - i;
+        } else {
           // Moving left → instant jump to i * 5%, then ease to (i + 1) * 5%
           el.style.transition = "none";
           el.style.transform = `translateX(${i * 5}%)`;
           void el.offsetWidth;
           el.style.transition = "transform 0.5s ease-out";
           el.style.transform = `translateX(${(i + 1) * 5}%)`;
+          void el.offsetWidth;
+          el.style.zIndex = count - i;
         }
       });
     }
@@ -137,7 +134,7 @@ export const Carousel = ({ children }) => {
 
       <button
         onClick={prev}
-        style={{ zIndex: childCount + 1 }}
+        style={{ zIndex: childCount + 2 }}
         className="button w-2! absolute left-2 top-1/2 transform -translate-y-1/2 px-2 py-1 rounded shadow"
       >
         ‹

@@ -342,29 +342,31 @@ export const DBApp = () => {
         and state, etc. and can be ordered by rating, review count, distance,
         and other metrics.
       </p>
-      <Carousel>
-        {/* <img
-          className="picture-frame w-full h-full"
-          src={"/images/DBApp/FilterBy.png"}
-          alt={"Example of Filter utility"}
-        />
-        <img
-          className="picture-frame w-full h-full"
-          src={"/images/DBApp/FilterBy.png"}
-          alt={"Example of Filter utility"}
-        /> */}
+      <div className="pt-5 flex">
+        <Carousel>
+          <img
+            className="picture-frame w-full h-full"
+            src={"/images/DBApp/FilterBy.png"}
+            alt={"Example of Filter utility"}
+          />
+          <img
+            className="picture-frame w-full h-full"
+            src={"/images/DBApp/OrderBy.png"}
+            alt={"Example of Filter utility"}
+          />
 
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-          <div
-            key={n}
-            className="p-4 bg-gray-200 rounded shadow-lg h-full p w-full"
-          >
-            <h1 className="text-xl font-bold">{n}</h1>
-          </div>
-        ))}
-      </Carousel>
+          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+            <div
+              key={n}
+              className="p-4 bg-gray-200 rounded shadow-lg h-full p w-full"
+            >
+              <h1 className="text-xl font-bold">{n}</h1>
+            </div>
+          ))} */}
+        </Carousel>
+      </div>
 
-      <p className="pt-2">
+      <p className="pt-5">
         One of the key features of React is the ability to seamlessly implement
         dynamic html elements. This is demonstrated in the above screenshots,
         showcasing dropdown menus.
