@@ -3,12 +3,19 @@ import React, { useState, useRef, useEffect } from "react";
 export const Carousel = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
+  const [clickedNext, setClickedNext] = useState(false);
+  const [clickedPrev, setClickedPrev] = useState(false);
   const count = React.Children.count(children);
+  const childCount = React.Children.count(children);
+  const leftRefs = useRef([]);
+  const rightRefs = useRef([]);
+  const currentRef = useRef(null);
 
   const prev = () => {
     if (index > 0) {
       setPrevIndex(index);
       setIndex(index - 1);
+      setClickedPrev(true);
     }
   };
 
@@ -16,12 +23,9 @@ export const Carousel = ({ children }) => {
     if (index < count - 1) {
       setPrevIndex(index);
       setIndex(index + 1);
+      setClickedNext(true);
     }
   };
-
-  const childCount = React.Children.count(children);
-  const leftRefs = useRef([]);
-  const rightRefs = useRef([]);
 
   const left =
     index > 0
@@ -116,7 +120,19 @@ export const Carousel = ({ children }) => {
         }
       });
     }
+    currentRef.current.style.zIndex = `${count + 1}`;
+    // setTimeout(() => {
+    //   if (currentRef.current) {
+    //     currentRef.current.style.zIndex = `${count + 1}`;
+    //   }
+    // }, 500);
   }, [index, prevIndex]);
+
+  useEffect(() => {
+    if (!clickedNext) return;
+    console.log("NEXT CALLED");
+    setClickedNext(false);
+  }, [clickedNext]);
 
   return (
     <div className="flex relative w-150 h-170 align-baseline bg-white rounded-md shadow-[inset_0_2px_8px_rgba(0,0,0,0.2)] overflow-hidden">
@@ -124,8 +140,9 @@ export const Carousel = ({ children }) => {
         {left}
         <div
           key={index}
+          ref={currentRef}
           className="absolute top-1/16 left-1/10  w-4/5 h-7/8 "
-          style={{ zIndex: childCount + 1 }}
+          // style={{ zIndex: childCount + 1 }}
         >
           {React.Children.toArray(children)[index]}
         </div>
